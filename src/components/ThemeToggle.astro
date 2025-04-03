@@ -1,8 +1,8 @@
 ---
 const THEMES = ["Light", "Dark", "System"];
-import Sun from "@/assets/icons/Sun.svg";
-import Moon from "@/assets/icons/Moon.svg";
-import System from "@/assets/icons/system.svg";
+import Sun from "@/assets/icons/Sun.astro";
+import Moon from "@/assets/icons/Moon.astro";
+import System from "@/assets/icons/system.astro";
 ---
 
 <div class="relative mx-1">
@@ -13,20 +13,30 @@ import System from "@/assets/icons/system.svg";
   >
     <span class="sr-only">Elige el tema</span>
 
+    <span  class="theme-toggle-icon absolute -top-[3px] size-5 transition-all"  id="light">
       <Sun
-        class="theme-toggle-icon absolute size-5 transition-all"
-        id="light"
-      />
+     
+    
+    />
+    </span>
+    <span  class="theme-toggle-icon absolute  -top-[3px] size-5 transition-all"  id="dark">
       <Moon
-        class="theme-toggle-icon absolute size-5 transition-all"
-        id="dark"
-      />
+     
+   
+    />
+    </span>
+    <span  class="theme-toggle-icon absolute  -top-[3px] size-5 transition-all"  id="system">
       <System
-        class="theme-toggle-icon absolute size-5 transition-all"
-        id="system"
-      />
+     
+    
+    />
+    </span>
+ 
+
+    
   
   </button>
+
   <div
     transition:persist
     id="themes-menu"
