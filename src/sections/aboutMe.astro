@@ -1,0 +1,67 @@
+---
+import Container from "../components/container.astro";
+import Badge from "../components/Badge.astro";
+import Image from "astro/components/Image.astro";
+import Moises from "../assets/img/Moises.jpg";
+import { Presentation } from "@/consts/presentation";
+import SocialLink from "@/components/SocialLink.astro";
+import { Socials } from "@/consts/Socials";
+---
+
+<Container className="mt-36" id="about">
+  <article
+    class="flex flex-col justify-center w-full items-center gap-4 dark:text-white text-black relative"
+  >
+    <div class="gap-x-8 flex items-center animate-fade-in-up">
+      <div class="">
+        <picture>
+          <Image
+            src={Moises}
+            alt="Moisés"
+            width="200"
+            height="200"
+            class="rounded-full h-36 w-auto mask-fade-image bg-center"
+          />
+        </picture>
+      </div>
+    </div>
+
+    <span class="animate-zoom-in animate-delay-100">
+      <Badge>{Presentation.title} </Badge>
+    </span>
+
+    <div class="flex items-center mt-4 animate-fade-in-right justify-center">
+      <h1 class="text-center text-balance animate-delay-150 font-semibold text-4xl xl:text-5xl">
+        Hola, soy {Presentation.name} 👋
+      </h1>
+    </div>
+
+    <div
+      class="flex justify-center animate-delay-250 animate-fade-in-up dark:text-white/80 text-theme-background items-center"
+    >
+      <h1 class="text-lg text-center text-pretty">
+        +6 Meses de experiencia. <span
+          class="text-amber-500 dark:text-amber-400 font-semibold"
+        >
+          Desarrollador especializado en la creación de interfaces web
+          funcionales y optimizadas
+        </span>, con experiencia en <span
+          class="text-amber-500 dark:text-amber-400 font-semibold"
+        >
+          tecnologías modernas
+        </span>para construir aplicaciones eficientes y accesibles.
+      </h1>
+    </div>
+
+    <div class="w-full flex justify-around items-center">
+     {Socials.map((social)=> (
+      <SocialLink href={social.href} className="w-10 h-auto"> <social.Icon class={"w-10 h-auto text-white opacity-85 hover:opacity-100 "} slot={"icon-left"}/>  </SocialLink>
+     ))}
+
+
+
+    </div>
+  </article>
+</Container>
+
+<style></style>

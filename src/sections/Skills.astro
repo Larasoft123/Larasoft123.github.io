@@ -1,0 +1,127 @@
+---
+import Container from "../components/container.astro";
+import { tecnologies } from "../consts/tecnologies";
+import SkillCard from "@/components/SkillCard.astro";
+
+
+const firstRow = tecnologies.slice(0, 4);
+const secondRow = tecnologies.slice(4, 8);
+const thirdRow = tecnologies.slice(8);
+---
+
+<Container className="" id="skills">
+  <div class="flex flex-col gap-4 text-theme-background dark:text-white">
+    <h1 class="text-center  text-3xl  font-bold mt-16">Skills</h1>
+    
+
+    <div class="grid grid-cols-9   gap-y-4 gap-x-2 mt-20 lg:mt-5">
+      <div
+        class="lg:col-span-3 xl:relative hidden -left-20  p-1 order-0 lg:order-0 col-span-full lg:flex justify-center items-center"
+      >
+        {
+          firstRow.map(({ image, name, url }) => (
+            <SkillCard image={image} name={name} url={url} />
+          ))
+        }
+      </div>
+
+  
+
+      <div
+        class="relative h-40 p-1 mt-2 order-2 hidden lg:order-0 col-span-full my-2 lg:col-span-3 lg:flex justify-center"
+      >
+        {
+          tecnologies.map(({ image, name }) => (
+            <a
+              class="flex-col items-center justify-center hidden absolute bottom-0 p-1"
+              data-id={`logo de ${name}`}
+            >
+              <image.logo
+                class="xl:h-40 lg:h-32 h-26 w-auto rounded-2xl bg-center"
+                width={image.width}
+                height={image.height}
+                alt={name}
+              />
+            </a>
+          ))
+        }
+      </div>
+
+      <div
+        class="lg:col-span-3 xl:relative hidden -right-20 p-1 lg:mt-0 animate-cover showAnimation mt-14 order-1 lg:order-0 col-span-full lg:flex justify-center items-center"
+      >
+        {
+          secondRow.map(({ image, name, url }) => (
+            <SkillCard image={image} name={name} url={url} />
+          ))
+        }
+      </div>
+
+      <div
+        class="lg:grid hidden grid-cols-4  mt-8 lg:grid-cols-6 gap-y-8 mx-auto justify-center p-1 order-2 lg:order-0 items-center lg:mt-14 col-span-full"
+      >
+        {
+          thirdRow.map(({ image, name, url }) => (
+            <SkillCard image={image} name={name} url={url} />
+          ))
+        }
+      </div>
+      
+
+      <!-- mobile icons -->
+      <div
+        class="lg:hidden grid grid-cols-4  mt-8 gap-y-14  mx-auto justify-center p-1  items-center lg:mt-14 col-span-full"
+      >
+        {
+          tecnologies.map(({ image, name, url }) => (
+            <SkillCard image={image} name={name} url={url} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Container>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const logos = document.querySelectorAll(".logo");
+
+    logos.forEach((logo) => {
+
+
+      logo.addEventListener("mouseenter", () => {
+
+        const id = logo.getAttribute("data-id");
+
+        const logoGrande = document.querySelector(`[data-id="logo de ${id}"]`);
+        if (!logoGrande) return;
+        logoGrande.classList.remove("animate-zoom-out");
+        logoGrande.classList.remove("animate-fade-out-down");
+        logoGrande.classList.remove("hidden");
+        logoGrande.classList.add("flex");
+        logoGrande.classList.add("animate-zoom-in");
+        logoGrande.classList.add("animate-slide-up-fade");
+      });
+
+      logo.addEventListener("mouseleave", () => {
+        const id = logo.getAttribute("data-id");
+        const logoGrande = document.querySelector(`[data-id="logo de ${id}"]`);
+        if (!logoGrande) return;
+        logoGrande.classList.remove("flex");
+
+        logoGrande.classList.remove("animate-zoom-in");
+        logoGrande.classList.remove("animate-slide-up-fade");
+        logoGrande.classList.add("animate-zoom-out");
+        logoGrande.classList.add("animate-fade-out-down");
+        logoGrande.classList.add("hidden");
+      });
+    });
+  });
+</script>
+
+<style>
+  .showAnimation {
+    animation-timeline: view();
+    animation-range: 15% 60%;
+  }
+</style>
