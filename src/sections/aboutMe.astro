@@ -55,7 +55,7 @@ import { Socials } from "@/consts/Socials";
 
     <div class="w-full flex justify-around items-center">
      {Socials.map((social)=> (
-      <SocialLink href={social.href} className="w-10 h-auto"> <social.Icon class={"w-10 h-auto text-white opacity-85 hover:opacity-100 "} slot={"icon-left"}/>  </SocialLink>
+      <SocialLink href={social.href} className="w-10 h-auto"> <social.Icon className={"w-10 h-auto text-white opacity-85 hover:opacity-100 "} slot={"icon-left"}/>  </SocialLink>
      ))}
 
 
