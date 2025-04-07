@@ -4,8 +4,8 @@ export interface Tecnologies {
     logo: any;
     width: number;
     height: number;
-    class?: string
+    className: string
   },
-  url: string;
+
 
 }
