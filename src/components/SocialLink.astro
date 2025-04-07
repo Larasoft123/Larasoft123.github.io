@@ -5,6 +5,9 @@ const { href, ClassName,  } = Astro.props;
 <a
   href={href}
   target="_blank"
+  aria-label="ir a red social"
+  rel="noopener noreferrer"
+  aria-describedby="tooltip-social"
   class={`flex items-center cursor-pointer transition-transform hover:scale-105 py-2 px-4 justify-center duration-300 gap-2 ${ClassName} `}
 >
 <span>
