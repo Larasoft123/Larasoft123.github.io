@@ -2,87 +2,34 @@
 import Container from "../components/container.astro";
 import { tecnologies } from "../consts/tecnologies";
 import SkillCard from "@/components/SkillCard.astro";
-
-
-const firstRow = tecnologies.slice(0, 4);
-const secondRow = tecnologies.slice(4, 8);
-const thirdRow = tecnologies.slice(8);
 ---
 
 <Container className="" id="skills">
-  <div class="flex flex-col gap-4 text-theme-background dark:text-white">
-    <h1 class="text-center  text-3xl  font-bold mt-16">Skills</h1>
-    
+  <article class="flex flex-col gap-4 text-white">
+    <h1 class="text-center text-3xl font-bold mt-16">Skills</h1>
 
-    <div class="grid grid-cols-9   gap-y-4 gap-x-2 mt-20 lg:mt-5">
+    <div class="grid grid-cols-9 gap-y-4 gap-x-2 mt-20 lg:mt-5">
       <div
-        class="lg:col-span-3 xl:relative hidden -left-20  p-1 order-0 lg:order-0 col-span-full lg:flex justify-center items-center"
-      >
-        {
-          firstRow.map(({ image, name, url }) => (
-            <SkillCard image={image} name={name} url={url} />
-          ))
-        }
-      </div>
-
-  
-
-      <div
-        class="relative h-40 p-1 mt-2 order-2 hidden lg:order-0 col-span-full my-2 lg:col-span-3 lg:flex justify-center"
+        id="container-skillCards"
+        class="grid grid-cols-4 md:grid-cols-6 xl:grid-cols-8 mt-8 gap-14 relative mx-auto justify-center p-1 items-center lg:mt-14 col-span-full"
       >
         {
           tecnologies.map(({ image, name }) => (
-            <a
-              class="flex-col items-center justify-center hidden absolute bottom-0 p-1"
-              data-id={`logo de ${name}`}
-            >
-              <image.logo
-                className="xl:w-40 lg:w-32 w-26 h-auto rounded-2xl bg-center"
-                width={image.width}
-                height={image.height}
-                alt={name}
-              />
-            </a>
+            <SkillCard image={image} name={name} />
           ))
         }
-      </div>
 
-      <div
-        class="lg:col-span-3 xl:relative hidden -right-20 p-1 lg:mt-0 animate-cover showAnimation mt-14 order-1 lg:order-0 col-span-full lg:flex justify-center items-center"
-      >
-        {
-          secondRow.map(({ image, name, url }) => (
-            <SkillCard image={image} name={name} url={url} />
-          ))
-        }
-      </div>
-
-      <div
-        class="lg:grid hidden grid-cols-4  mt-8 lg:grid-cols-6 gap-y-8 mx-auto justify-center p-1 order-2 lg:order-0 items-center lg:mt-14 col-span-full"
-      >
-        {
-          thirdRow.map(({ image, name, url }) => (
-            <SkillCard image={image} name={name} url={url} />
-          ))
-        }
-      </div>
-      
-
-      <!-- mobile icons -->
-      <div
-        class="lg:hidden grid grid-cols-4  mt-8 gap-y-14  mx-auto justify-center p-1  items-center lg:mt-14 col-span-full"
-      >
-        {
-          tecnologies.map(({ image, name, url }) => (
-            <SkillCard image={image} name={name} url={url} />
-          ))
-        }
+        <div
+          id="selectorFighter"
+          class="absolute w-[var(--selector--width)] h-[var(--selector--height)] top-[var(--selector--top)] left-[var(--selector--left)] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] transition-all opacity-0 z-40 pointer-events-none"
+        >
+        </div>
       </div>
     </div>
-  </div>
+  </article>
 </Container>
 
-<script>
+<!-- <script>
   document.addEventListener("astro:page-load", () => {
     const logos = document.querySelectorAll(".logo");
 
@@ -117,11 +64,129 @@ const thirdRow = tecnologies.slice(8);
       });
     });
   });
-</script>
+</script> -->
 
-<style>
+<!-- <style>
   .showAnimation {
     animation-timeline: view();
     animation-range: 15% 60%;
   }
-</style>
+
+  .mask-fade-text {
+    mask-image: linear-gradient(to bottom, transparent 5%, black 6%, black 95%, transparent 100%);
+  }
+
+  @keyframes fighter-select {
+    from {
+      opacity: 0.5;
+      border-color: rgba(255, 20, 147, 1);
+    }
+    to {
+      opacity: 1;
+      border-color: rgba(255, 20, 147, 0.5);
+    }
+  }
+</style> -->
+<script>
+  import { createDraggable } from "animejs";
+
+  const logos = document.querySelectorAll(".logo");
+
+  logos.forEach((social) => {
+    createDraggable(social, {
+     
+      container: "#container-skillCards",
+      snap: 100, // Global to both x and y
+      x: { snap: [0] }, // Specific to x
+      y: { snap: [0] }, // Specific to y
+      onRelease: () => {},
+    });
+  });
+</script>
+
+<script>
+  const $fighterSelector = document.createElement("div");
+  $fighterSelector.id = "selectorFighter";
+
+  $fighterSelector.style.position = "absolute";
+  $fighterSelector.style.width = "var(--selector--width)";
+  $fighterSelector.style.height = "var(--selector--height)";
+  $fighterSelector.style.top = "var(--selector--top)";
+  $fighterSelector.style.left = "var(--selector--left)";
+  $fighterSelector.style.transitionDuration = "500ms";
+  $fighterSelector.style.transitionTimingFunction =
+    "cubic-bezier(0.4, 0, 0.2, 1)";
+  $fighterSelector.style.transitionProperty = "all";
+  $fighterSelector.style.opacity = "0";
+  $fighterSelector.style.zIndex = "40";
+  $fighterSelector.style.pointerEvents = "none";
+  $fighterSelector.classList.add("border", "z-5", "rounded-lg");
+
+  // $fighterSelector.style.animation = "fighter-select 0.5s infinite alternate";
+
+  // const beforeElement = document.createElement('div');
+  // beforeElement.style.position = 'absolute';
+  // beforeElement.style.inset = '-4px';
+  // beforeElement.style.background = 'transparent';
+  // beforeElement.style.borderRadius = '8px';
+  // beforeElement.style.opacity = '1';
+  // beforeElement.style.zIndex = '30';
+  // beforeElement.style.animation = 'fighter-select 0.5s infinite alternate';
+
+  // const afterElement = document.createElement('div');
+  // afterElement.style.position = 'absolute';
+  // afterElement.style.inset = '-4px';
+  // afterElement.style.zIndex = '30';
+  // afterElement.style.opacity = '1';
+  // afterElement.style.background = `
+  // linear-gradient(to right, #fff 4px, transparent 4px) top left,
+  // linear-gradient(to bottom, #fff 4px, transparent 4px) top left,
+  // linear-gradient(to left, #fff 4px, transparent 4px) top right,
+  // linear-gradient(to bottom, #fff 4px, transparent 4px) top right,
+  // linear-gradient(to right, #fff 4px, transparent 4px) bottom left,
+  // linear-gradient(to top, #fff 4px, transparent 4px) bottom left,
+  // linear-gradient(to left, #fff 4px, transparent 4px) bottom right,
+  // linear-gradient(to top, #fff 4px, transparent 4px) bottom right`;
+  // afterElement.style.backgroundRepeat = 'no-repeat';
+  // afterElement.style.backgroundSize = '25px 25px';
+  // afterElement.style.borderRadius = '8px';
+  // afterElement.style.animation = 'fighter-select 0.5s infinite alternate';
+
+  // $fighterSelector.appendChild(beforeElement);
+  // $fighterSelector.appendChild(afterElement);
+
+  const $fightersContainer = document.getElementById(
+    "container-skillCards"
+  ) as HTMLElement;
+  $fightersContainer.appendChild($fighterSelector);
+
+  const skillCards = document.querySelectorAll(".logo");
+
+  skillCards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      const { width, height, left, top } = card.getBoundingClientRect();
+      const { left: leftFighterContainer, top: topFighterContainer } =
+        $fightersContainer.getBoundingClientRect();
+
+      $fighterSelector.style.setProperty(
+        "--selector--left",
+        `${left - leftFighterContainer}px`
+      );
+      $fighterSelector.style.setProperty(
+        "--selector--top",
+        `${top - topFighterContainer}px`
+      );
+      $fighterSelector.style.setProperty("--selector--width", `${width}px`);
+      $fighterSelector.style.setProperty("--selector--height", `${height}px`);
+
+      $fighterSelector.style.opacity = "1";
+      $fighterSelector.style.visibility = "visible";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      $fighterSelector.style.transform = "scale(1)";
+      $fighterSelector.style.opacity = "0";
+      $fighterSelector.style.visibility = "hidden";
+    });
+  });
+</script>
