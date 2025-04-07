@@ -4,7 +4,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-theme-background: #0e100f;
+  --color-theme-background: #151a36;
   --color-primary: #51e4b8;
 
   --gradient: linear-gradient(to right, #884aff, #e93330);
@@ -129,7 +129,6 @@
 html {
   height: 200% !important;
   font-family: "Poppins", sans-serif;
-
   color: var(--color-theme-text);
   scroll-behavior: smooth;
   overflow-x: hidden;
