@@ -66,27 +66,7 @@ import SkillCard from "@/components/SkillCard.astro";
   });
 </script> -->
 
-<!-- <style>
-  .showAnimation {
-    animation-timeline: view();
-    animation-range: 15% 60%;
-  }
 
-  .mask-fade-text {
-    mask-image: linear-gradient(to bottom, transparent 5%, black 6%, black 95%, transparent 100%);
-  }
-
-  @keyframes fighter-select {
-    from {
-      opacity: 0.5;
-      border-color: rgba(255, 20, 147, 1);
-    }
-    to {
-      opacity: 1;
-      border-color: rgba(255, 20, 147, 0.5);
-    }
-  }
-</style> -->
 <script>
   import { createDraggable } from "animejs";
 
@@ -122,38 +102,7 @@ import SkillCard from "@/components/SkillCard.astro";
   $fighterSelector.style.pointerEvents = "none";
   $fighterSelector.classList.add("border", "z-5", "rounded-lg");
 
-  // $fighterSelector.style.animation = "fighter-select 0.5s infinite alternate";
-
-  // const beforeElement = document.createElement('div');
-  // beforeElement.style.position = 'absolute';
-  // beforeElement.style.inset = '-4px';
-  // beforeElement.style.background = 'transparent';
-  // beforeElement.style.borderRadius = '8px';
-  // beforeElement.style.opacity = '1';
-  // beforeElement.style.zIndex = '30';
-  // beforeElement.style.animation = 'fighter-select 0.5s infinite alternate';
-
-  // const afterElement = document.createElement('div');
-  // afterElement.style.position = 'absolute';
-  // afterElement.style.inset = '-4px';
-  // afterElement.style.zIndex = '30';
-  // afterElement.style.opacity = '1';
-  // afterElement.style.background = `
-  // linear-gradient(to right, #fff 4px, transparent 4px) top left,
-  // linear-gradient(to bottom, #fff 4px, transparent 4px) top left,
-  // linear-gradient(to left, #fff 4px, transparent 4px) top right,
-  // linear-gradient(to bottom, #fff 4px, transparent 4px) top right,
-  // linear-gradient(to right, #fff 4px, transparent 4px) bottom left,
-  // linear-gradient(to top, #fff 4px, transparent 4px) bottom left,
-  // linear-gradient(to left, #fff 4px, transparent 4px) bottom right,
-  // linear-gradient(to top, #fff 4px, transparent 4px) bottom right`;
-  // afterElement.style.backgroundRepeat = 'no-repeat';
-  // afterElement.style.backgroundSize = '25px 25px';
-  // afterElement.style.borderRadius = '8px';
-  // afterElement.style.animation = 'fighter-select 0.5s infinite alternate';
-
-  // $fighterSelector.appendChild(beforeElement);
-  // $fighterSelector.appendChild(afterElement);
+  
 
   const $fightersContainer = document.getElementById(
     "container-skillCards"
