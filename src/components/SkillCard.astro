@@ -1,16 +1,15 @@
 ---
 interface Props{
   name: string,
-  url: string,
   image: {
     logo: any,
     width: number,
     height: number,
-    className?: string
+    className: string
   }
 }
 
-const { image, name, url } = Astro.props;
+const { image, name } = Astro.props;
 
 
 ---
@@ -18,20 +17,18 @@ const { image, name, url } = Astro.props;
 
 
 
-<a
-  class={`flex group logo flex-col items-center mx-5 p-1 justify-center ${image.className}`}
+<div
+  class={`flex group relative z-10 logo flex-col items-center p-1 justify-center ${image.className}`}
   data-id={name}
-  href={url}
-  rel="noopener noreferrer"
-  target="_blank"
+
 >
   <image.logo
-    className={`h-auto logito w-10 group-hover:scale-105 group-hover:-translate-y-1 transition-all`}
+    className={`h-auto relative z-30 logito not-first:group-hover:scale-105 group-hover:-translate-y-1 transition-all ${image.className}`}
     width={image.width}
     height={image.height}
     alt={name}
   />
-</a>
+</div>
 
 
 <style>
@@ -39,11 +36,12 @@ const { image, name, url } = Astro.props;
       cursor: pointer;
     }
 
-    .logito{
-
-
-
+    .logo{
       filter: grayscale(.2);
+
+      .logito{
+        cursor: pointer;
+      }
       &:hover{
         filter: drop-shadow(0px 0px 10px #ffffffaa);
        
