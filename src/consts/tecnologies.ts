@@ -16,6 +16,8 @@ import midudev from "@/assets/Logos/midudev.astro";
 import Git from "@/assets/Logos/Git.astro";
 import Vitejs from "@/assets/Logos/vitejs.astro";
 import Python from "@/assets/Logos/python.astro";
+import NextJs from "@/assets/Logos/NextJs.astro";
+import Css from "@/assets/Logos/Css.astro";
 
 export const tecnologies: Tecnologies[] = [
   {
@@ -91,6 +93,15 @@ export const tecnologies: Tecnologies[] = [
     },
   },
   {
+    name: "NextJs",
+    image: {
+      logo: NextJs,
+      width: 100,
+      height: 100,
+      className: "w-10 sm:w-12 xl:w-14",
+    },
+  },
+  {
     name: "Sass",
     image: {
       logo: sass,
@@ -135,15 +146,18 @@ export const tecnologies: Tecnologies[] = [
       className: "w-10 sm:w-12 xl:w-14",
     },
   },
+
   {
-    name: "Vercel",
+    name: "CSS",
     image: {
-      logo: vercel,
+      logo: Css,
       width: 100,
       height: 100,
-      className: "w-10 sm:w-12 xl:w-20",
+      className: "w-10 sm:w-12 xl:w-14",
     },
   },
+
+
   {
     name: "Midudev",
     image: {
