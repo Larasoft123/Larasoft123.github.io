@@ -111,7 +111,7 @@
 @utility animate-blur-shadow-black {
   animation: blur-shadow-black linear both;
   animation-timeline: scroll();
-  animation-range: 0px 200px;
+  animation-range: 0px 700px;
 }
 
 
