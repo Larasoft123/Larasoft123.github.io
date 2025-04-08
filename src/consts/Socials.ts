@@ -15,7 +15,7 @@ export const Socials = [
     },
     {
         name: "Github",
-        href: "https://github.com/moises-dev",
+        href: "https://github.com/Larasoft123",
         Icon: Github
     },
 
