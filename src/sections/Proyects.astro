@@ -1,0 +1,27 @@
+---
+import Container from "../components/container.astro";
+import TextSection from "@/components/TextSection.astro";
+import { ProyectsList } from "@/consts/Proyects";
+import ProyectCard from "@/components/ProyectCard.astro";
+---
+
+<Container className="" id="projects">
+  <TextSection name="Proyectos" className="text-yellow-400">
+    <div
+      slot="content"
+      class=""
+    >
+      <div class="flex flex-wrap gap-20">
+        {
+          ProyectsList.map(
+            ({ description, github, image, link, name, tags,date }) => (
+              <ProyectCard tags={tags} name={name} description={description} date={date} />
+            )
+          )
+        }
+      </div>
+    </div>
+  </TextSection>
+</Container>
+
+
