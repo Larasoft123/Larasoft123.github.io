@@ -2,13 +2,15 @@
 import Container from "../components/container.astro";
 import { tecnologies } from "../consts/tecnologies";
 import SkillCard from "@/components/SkillCard.astro";
+import TextSection from "@/components/TextSection.astro";
 ---
 
 <Container className="" id="skills">
-  <article class="flex flex-col gap-4 text-white">
-    <h1 class="text-center text-3xl font-bold mt-16">Skills</h1>
 
-    <div class="grid grid-cols-9 gap-y-4 gap-x-2 mt-20 lg:mt-5">
+  <TextSection name="Skills" className="text-amber-400">
+
+
+    <div slot="content" class="grid grid-cols-9 gap-y-4 gap-x-2 mt-20 lg:mt-5">
       <div
         id="container-skillCards"
         class="grid grid-cols-4 md:grid-cols-6 xl:grid-cols-8 mt-8 gap-14 relative mx-auto justify-center p-1 items-center lg:mt-14 col-span-full"
@@ -26,7 +28,9 @@ import SkillCard from "@/components/SkillCard.astro";
         </div>
       </div>
     </div>
-  </article>
+
+  </TextSection>
+
 </Container>
 
 <!-- <script>
@@ -66,25 +70,24 @@ import SkillCard from "@/components/SkillCard.astro";
   });
 </script> -->
 
+<!-- <style>
+   @keyframes fighter-select {
+    from {
+      opacity: 0.5;
+      border-color: rgb(220, 135, 16);
+    }
+    to {
+      opacity: 1;
+      border-color: rgba(226, 109, 14, 0.5);
+    }
+  }
+</style> -->
+
 
 <script>
-  import { createDraggable } from "animejs";
+  import { createDraggable} from "animejs";
 
-  const logos = document.querySelectorAll(".logo");
-
-  logos.forEach((social) => {
-    createDraggable(social, {
-     
-      container: "#container-skillCards",
-      snap: 100, // Global to both x and y
-      x: { snap: [0] }, // Specific to x
-      y: { snap: [0] }, // Specific to y
-      onRelease: () => {},
-    });
-  });
-</script>
-
-<script>
+  const skillCards = document.querySelectorAll(".logo");
   const $fighterSelector = document.createElement("div");
   $fighterSelector.id = "selectorFighter";
 
@@ -98,33 +101,57 @@ import SkillCard from "@/components/SkillCard.astro";
     "cubic-bezier(0.4, 0, 0.2, 1)";
   $fighterSelector.style.transitionProperty = "all";
   $fighterSelector.style.opacity = "0";
-  $fighterSelector.style.zIndex = "40";
+  $fighterSelector.style.zIndex = "-5";
   $fighterSelector.style.pointerEvents = "none";
-  $fighterSelector.classList.add("border", "z-5", "rounded-lg");
+  $fighterSelector.classList.add("border", "-z-5", "rounded-lg");
 
-  
+   $fighterSelector.style.animation = "fighter-select 0.5s infinite alternate";
+
+  const beforeElement = document.createElement('div');
+  beforeElement.style.position = 'absolute';
+  beforeElement.style.inset = '-4px';
+  beforeElement.style.background = 'transparent';
+  beforeElement.style.borderRadius = '8px';
+  beforeElement.style.opacity = '1';
+  beforeElement.style.zIndex = '30';
+  beforeElement.style.animation = 'fighter-select 0.5s infinite alternate';
+
+  const afterElement = document.createElement('div');
+  afterElement.style.position = 'absolute';
+  afterElement.style.inset = '-4px';
+  afterElement.style.zIndex = '30';
+  afterElement.style.opacity = '1';
+  afterElement.style.background = `
+  linear-gradient(to right, #fff 4px, transparent 4px) top left,
+  linear-gradient(to bottom, #fff 4px, transparent 4px) top left,
+  linear-gradient(to left, #fff 4px, transparent 4px) top right,
+  linear-gradient(to bottom, #fff 4px, transparent 4px) top right,
+  linear-gradient(to right, #fff 4px, transparent 4px) bottom left,
+  linear-gradient(to top, #fff 4px, transparent 4px) bottom left,
+  linear-gradient(to left, #fff 4px, transparent 4px) bottom right,
+  linear-gradient(to top, #fff 4px, transparent 4px) bottom right`;
+  afterElement.style.backgroundRepeat = 'no-repeat';
+  afterElement.style.backgroundSize = '25px 25px';
+  afterElement.style.borderRadius = '8px';
+  afterElement.style.animation = 'fighter-select 0.5s infinite alternate';
+
+  $fighterSelector.appendChild(beforeElement);
+  $fighterSelector.appendChild(afterElement);
 
   const $fightersContainer = document.getElementById(
     "container-skillCards"
   ) as HTMLElement;
   $fightersContainer.appendChild($fighterSelector);
 
-  const skillCards = document.querySelectorAll(".logo");
+
 
   skillCards.forEach((card) => {
     card.addEventListener("mouseenter", () => {
-      const { width, height, left, top } = card.getBoundingClientRect();
-      const { left: leftFighterContainer, top: topFighterContainer } =
-        $fightersContainer.getBoundingClientRect();
+      const { width, height, } = card.getBoundingClientRect();
 
-      $fighterSelector.style.setProperty(
-        "--selector--left",
-        `${left - leftFighterContainer}px`
-      );
-      $fighterSelector.style.setProperty(
-        "--selector--top",
-        `${top - topFighterContainer}px`
-      );
+      UpdateSelector(card)
+
+
       $fighterSelector.style.setProperty("--selector--width", `${width}px`);
       $fighterSelector.style.setProperty("--selector--height", `${height}px`);
 
@@ -132,10 +159,40 @@ import SkillCard from "@/components/SkillCard.astro";
       $fighterSelector.style.visibility = "visible";
     });
 
-    card.addEventListener("mouseleave", () => {
-      $fighterSelector.style.transform = "scale(1)";
+    card.addEventListener("mouseleave", () => hiddenSelector());
+
+    createDraggable(card, {
+      container: "#container-skillCards",
+      snap: 40, // Global to both x and y
+      x: { snap: [0] }, // Specific to x
+      y: { snap: [0] }, // Specific to y
+      onUpdate: () => UpdateSelector(card),
+      onSettle: () => hiddenSelector(),
+    });
+
+  });
+
+
+
+
+  function UpdateSelector(card: Element) {
+    const { left, top } = card.getBoundingClientRect();
+    const { left: leftFighterContainer, top: topFighterContainer } = $fightersContainer.getBoundingClientRect();
+
+    $fighterSelector.style.opacity = "1";
+    $fighterSelector.style.visibility = "visible";
+    $fighterSelector.style.setProperty("--selector--left", `${left - leftFighterContainer}px`);
+    $fighterSelector.style.setProperty("--selector--top", `${top - topFighterContainer}px`);
+    
+  }
+
+  function hiddenSelector() {
+    $fighterSelector.style.transform = "scale(1)";
       $fighterSelector.style.opacity = "0";
       $fighterSelector.style.visibility = "hidden";
-    });
-  });
+    
+  }
+
+
+
 </script>
