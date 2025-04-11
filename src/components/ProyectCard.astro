@@ -1,22 +1,23 @@
 ---
 import ShowDate from "./showDate.astro";
 import ProyectLink from "./ProyectLink.astro";
-import NextJs from "@/assets/Logos/NextJs.astro";
+
 import { type Tag } from "@/types/proyectType";
 
 interface Props {
   name: string;
   description: string;
   date: string;
+  image: string;
   tags: Tag[];
+  animationClass: string
 }
 
-const { name, description, date, tags } = Astro.props;
-console.log(tags);
+const { name, image, description, date, tags,animationClass } = Astro.props;
 ---
 
 <div
-  class="lg:min-h-[30rem]  h-[25rem] flex items-center justify-center sm:w-96 w-[80vw] cursor-pointer"
+  class={`${animationClass} lg:min-h-[30rem]  h-[25rem] flex items-center justify-center sm:w-96 w-[80vw] cursor-pointer`}
 >
   <div class="relative group/pin z-50">
     <div
@@ -24,7 +25,7 @@ console.log(tags);
       style="perspective: 1000px;"
     >
       <div
-        class="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] border border-white/[0.1] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
+        class="absolute left-1/2 p-4 top-1/2 flex hover:-translate-z-20 justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] border border-white/[0.1] group-hover/pin:border-white/[0.3] transition duration-700 overflow-hidden"
         style="transform: translate(-50%, -50%) rotateX(0deg);"
       >
         <div class="relative z-50">
@@ -34,39 +35,39 @@ console.log(tags);
             <img
               alt={name}
               title={name}
+              srcset={image}
               loading="lazy"
               decoding="async"
-              class="relative w-full h-full overflow-hidden rounded-2xl"
+              class="relative w-full  aspect-[1920/943] h-full overflow-hidden rounded-2xl"
               sizes="100vw"
               style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"
             />
           </div>
-          <h2 class="font-bold lg:text-2xl text-xl line-clamp-1">
-            {name}
-          </h2>
-          <p
-            class="lg:text-xl lg:font-normal font-light text-lg line-clamp-2"
-            style="color: rgb(190, 193, 221); margin: 1vh 0px;"
-          >
-            {description}
-          </p>
 
-          <div class="flex items-center justify-between mt-7 mb-3">
-            <div class="flex items-center">
+          <div class="flex-1">
+            <h2 class="font-bold text-primary/85 lg:text-2xl text-xl line-clamp-1">
+              {name}
+            </h2>
+            <p
+              class="lg:text-xl lg:font-normal font-light text-lg line-clamp-2"
+              style="color: rgb(190, 193, 221); margin: 1vh 0px;"
+            >
+              {description}
+            </p>
+          </div>
          
-
+          <div class="flex items-center justify-between mt-7 mb-3">
+            
+            <div class="flex items-center">
               {
                 tags.map(({ name, icon }) => (
                   <div class="-mr-4 relative group">
-                   
-                    <div 
-                    class="hidden group-hover:inline-block  absolute text-white px-2 py-1 text-xs rounded-full 
+                    <div
+                      class="hidden group-hover:inline-block  absolute text-white px-2 py-1 text-xs rounded-full 
                     -top-5 bg-gray-800 z-100"
                     >
-                    
-                     <span>{name}</span>
+                      <span>{name}</span>
                     </div>
-
 
                     <icon.logo className="bg-black-100 !m-0 !p-2 object-top rounded-full md:h-14 md:w-14 h-12 w-12 border-2 group-hover:scale-105 group-hover:z-30 border-white relative transition duration-500" />
                   </div>
@@ -76,6 +77,8 @@ console.log(tags);
 
             <ProyectLink title={name} />
           </div>
+
+
         </div>
       </div>
     </div>
