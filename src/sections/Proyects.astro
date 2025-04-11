@@ -6,16 +6,16 @@ import ProyectCard from "@/components/ProyectCard.astro";
 ---
 
 <Container className="" id="projects">
-  <TextSection name="Proyectos" className="text-yellow-400">
+  <TextSection name="Proyectos" className="text-yellow-400 up-animation">
     <div
       slot="content"
-      class=""
+      class="mt-10"
     >
-      <div class="flex flex-wrap gap-20">
+      <div class="flex flex-wrap justify-center lg:justify-start gap-x-20 gap-y-40">
         {
           ProyectsList.map(
-            ({ description, github, image, link, name, tags,date }) => (
-              <ProyectCard tags={tags} name={name} description={description} date={date} />
+            ({ description, github, image, link, name, tags,date },index) => (
+              <ProyectCard tags={tags} image={image} name={name} animationClass={`${index % 2 === 0 ? 'entry-animation' : 'cover-animation'}`} description={description} date={date} />
             )
           )
         }
