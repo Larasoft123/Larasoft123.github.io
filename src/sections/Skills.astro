@@ -6,10 +6,7 @@ import TextSection from "@/components/TextSection.astro";
 ---
 
 <Container className="" id="skills">
-
-  <TextSection name="Skills" className="text-amber-400">
-
-
+  <TextSection name="Skills" className="text-amber-400 entry-animation  ">
     <div slot="content" class="grid grid-cols-9 gap-y-4 gap-x-2 mt-20 lg:mt-5">
       <div
         id="container-skillCards"
@@ -21,16 +18,11 @@ import TextSection from "@/components/TextSection.astro";
           ))
         }
 
-        <div
-          id="selectorFighter"
-          class="absolute w-[var(--selector--width)] h-[var(--selector--height)] top-[var(--selector--top)] left-[var(--selector--left)] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] transition-all opacity-0 z-40 pointer-events-none"
-        >
+   
         </div>
       </div>
     </div>
-
   </TextSection>
-
 </Container>
 
 <!-- <script>
@@ -70,22 +62,24 @@ import TextSection from "@/components/TextSection.astro";
   });
 </script> -->
 
-<!-- <style>
+<style>
    @keyframes fighter-select {
     from {
       opacity: 0.5;
-      border-color: rgb(220, 135, 16);
+
     }
     to {
       opacity: 1;
-      border-color: rgba(226, 109, 14, 0.5);
+    
     }
   }
-</style> -->
+</style>
+
 
 
 <script>
-  import { createDraggable} from "animejs";
+  
+  import { createDraggable } from "animejs";
 
   const skillCards = document.querySelectorAll(".logo");
   const $fighterSelector = document.createElement("div");
@@ -105,22 +99,22 @@ import TextSection from "@/components/TextSection.astro";
   $fighterSelector.style.pointerEvents = "none";
   $fighterSelector.classList.add("border", "-z-5", "rounded-lg");
 
-   $fighterSelector.style.animation = "fighter-select 0.5s infinite alternate";
+  $fighterSelector.style.animation = "fighter-select 0.5s infinite alternate";
 
-  const beforeElement = document.createElement('div');
-  beforeElement.style.position = 'absolute';
-  beforeElement.style.inset = '-4px';
-  beforeElement.style.background = 'transparent';
-  beforeElement.style.borderRadius = '8px';
-  beforeElement.style.opacity = '1';
-  beforeElement.style.zIndex = '30';
-  beforeElement.style.animation = 'fighter-select 0.5s infinite alternate';
+  const beforeElement = document.createElement("div");
+  beforeElement.style.position = "absolute";
+  beforeElement.style.inset = "-4px";
+  beforeElement.style.background = "transparent";
+  beforeElement.style.borderRadius = "8px";
+  beforeElement.style.opacity = "1";
+  beforeElement.style.zIndex = "30";
+  beforeElement.style.animation = "fighter-select 0.5s infinite alternate";
 
-  const afterElement = document.createElement('div');
-  afterElement.style.position = 'absolute';
-  afterElement.style.inset = '-4px';
-  afterElement.style.zIndex = '30';
-  afterElement.style.opacity = '1';
+  const afterElement = document.createElement("div");
+  afterElement.style.position = "absolute";
+  afterElement.style.inset = "-4px";
+  afterElement.style.zIndex = "30";
+  afterElement.style.opacity = "1";
   afterElement.style.background = `
   linear-gradient(to right, #fff 4px, transparent 4px) top left,
   linear-gradient(to bottom, #fff 4px, transparent 4px) top left,
@@ -130,10 +124,10 @@ import TextSection from "@/components/TextSection.astro";
   linear-gradient(to top, #fff 4px, transparent 4px) bottom left,
   linear-gradient(to left, #fff 4px, transparent 4px) bottom right,
   linear-gradient(to top, #fff 4px, transparent 4px) bottom right`;
-  afterElement.style.backgroundRepeat = 'no-repeat';
-  afterElement.style.backgroundSize = '25px 25px';
-  afterElement.style.borderRadius = '8px';
-  afterElement.style.animation = 'fighter-select 0.5s infinite alternate';
+  afterElement.style.backgroundRepeat = "no-repeat";
+  afterElement.style.backgroundSize = "25px 25px";
+  afterElement.style.borderRadius = "8px";
+  afterElement.style.animation = "fighter-select 0.5s infinite alternate";
 
   $fighterSelector.appendChild(beforeElement);
   $fighterSelector.appendChild(afterElement);
@@ -143,14 +137,11 @@ import TextSection from "@/components/TextSection.astro";
   ) as HTMLElement;
   $fightersContainer.appendChild($fighterSelector);
 
-
-
   skillCards.forEach((card) => {
     card.addEventListener("mouseenter", () => {
-      const { width, height, } = card.getBoundingClientRect();
+      const { width, height } = card.getBoundingClientRect();
 
-      UpdateSelector(card)
-
+      UpdateSelector(card);
 
       $fighterSelector.style.setProperty("--selector--width", `${width}px`);
       $fighterSelector.style.setProperty("--selector--height", `${height}px`);
@@ -169,30 +160,28 @@ import TextSection from "@/components/TextSection.astro";
       onUpdate: () => UpdateSelector(card),
       onSettle: () => hiddenSelector(),
     });
-
   });
-
-
-
 
   function UpdateSelector(card: Element) {
     const { left, top } = card.getBoundingClientRect();
-    const { left: leftFighterContainer, top: topFighterContainer } = $fightersContainer.getBoundingClientRect();
+    const { left: leftFighterContainer, top: topFighterContainer } =
+      $fightersContainer.getBoundingClientRect();
 
     $fighterSelector.style.opacity = "1";
     $fighterSelector.style.visibility = "visible";
-    $fighterSelector.style.setProperty("--selector--left", `${left - leftFighterContainer}px`);
-    $fighterSelector.style.setProperty("--selector--top", `${top - topFighterContainer}px`);
-    
+    $fighterSelector.style.setProperty(
+      "--selector--left",
+      `${left - leftFighterContainer}px`
+    );
+    $fighterSelector.style.setProperty(
+      "--selector--top",
+      `${top - topFighterContainer}px`
+    );
   }
 
   function hiddenSelector() {
     $fighterSelector.style.transform = "scale(1)";
-      $fighterSelector.style.opacity = "0";
-      $fighterSelector.style.visibility = "hidden";
-    
+    $fighterSelector.style.opacity = "0";
+    $fighterSelector.style.visibility = "hidden";
   }
-
-
-
 </script>
