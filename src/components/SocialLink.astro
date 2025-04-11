@@ -1,11 +1,22 @@
 ---
-const { href, ClassName,  } = Astro.props;
+
+interface Props {
+  href: string;
+  name: string;
+  ClassName?: string;
+}
+
+const { href, ClassName,name  } = Astro.props;
+
+
+const msg = name === "Gmail" ? "Enviar un email a Moises al correo moisesdavidlara1@gmail.com" : name === "Phone" ? "Llamar por telefono a Moises al numero +424 538 6974" : `Abrir enlace a red social ${name}`;
 ---
 
 <a
   href={href}
   target="_blank"
-  aria-label="ir a red social"
+  aria-label={msg}
+  title={name}
   rel="noopener noreferrer"
   aria-describedby="tooltip-social"
   class={`flex items-center cursor-pointer transition-transform hover:scale-105 py-2 px-4 justify-center duration-300 gap-2 ${ClassName} `}
