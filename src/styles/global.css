@@ -10,9 +10,10 @@
   --gradient: linear-gradient(to right, #884aff, #e93330);
   --color-theme-text: #fff;
   --color-theme-scrollbar: #fff;
-  --animate-entry: entry-animation linear both;
-  --animate-cover: cover-animation linear both;
-  --animate-up-down: up-down-animation linear both;
+
+
+
+
 }
 
 @layer base {
@@ -55,27 +56,15 @@
 @keyframes blur-shadow-black {
   0% {
     backdrop-filter: blur(0px);
+ 
+
   }
   100% {
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.4);
+ 
   }
 }
-
-
-@keyframes blur-shadow-white {
-  0% {
-    backdrop-filter: blur(0px);
-  }
-  100% {
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.4);
-    color: red;
-    
-  }
-}
-
-
 
 
 @keyframes entry-animation {
@@ -100,9 +89,44 @@
   }
 }
 
+@keyframes up-animation {
+  0% {
+    opacity: 0;
+    translate: 0 250px;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
 /* end animations */
 
 /* utility classes */
+
+
+
+@utility entry-animation {
+  animation: entry-animation  linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+}
+
+
+@utility cover-animation {
+
+  animation: cover-animation  linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+}
+
+@utility  up-animation {
+  animation:  up-animation linear both;
+  animation-timeline: view();
+  animation-range: entry 30% cover 50%;
+}
+
+
 
 @utility mask-fade-image {
   mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
@@ -115,21 +139,14 @@
 }
 
 
-@utility animate-blur-shadow-white {
-  animation: blur-shadow-white linear both;
-  animation-timeline: scroll();
-  animation-range: 0px 200px;
-}
-
 
 /* end utility classes */
 
 
 
 html {
-  height: 200% !important;
+  min-height: 100% !important;
   font-family: "Poppins", sans-serif;
   color: var(--color-theme-text);
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
