@@ -9,7 +9,7 @@ const { className,name } = Astro.props;
 ---
 
 <article class={`flex flex-col mt-16 gap-4 ${className}`}>
-    <h1 class="text-center text-3xl font-bold">{name}</h1>
+    <h1 class="text-center text-balance text-3xl font-bold">{name}</h1>
 
     <slot name="content" />
 </article>
