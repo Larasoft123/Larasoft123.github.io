@@ -17,6 +17,9 @@ import Python from "@/assets/Logos/python.astro";
 import Css from "@/assets/Logos/Css.astro";
 import NextJs from "@/assets/Logos/NextJs.astro";
 
+
+
+
 const tags = {
   js: {
     name: "javascript",
@@ -25,7 +28,7 @@ const tags = {
     },
   },
   css: {
-    name: "CSS3",
+    name: "CSS",
     icon: {
       logo: Css,
     },
@@ -115,7 +118,7 @@ export const ProyectsList: Proyect[] = [
     name: "Juego de Memoria",
     description:
       "Juego de memoria hecho con JavaScript vanila, !Porque me gusta sufrir!",
-    image: "https://astro.build/assets/social/astro-og.webp",
+    image: "../../public/images/proyects/Juego-memoria.webp",
     link: "https://larasoft123.github.io/juego-memoria/",
     tags: [tags.js, tags.css, tags.html],
     github: "https://github.com/Larasoft123/juego-memoria",
@@ -124,7 +127,7 @@ export const ProyectsList: Proyect[] = [
   {
     name: "App de listas",
     description: "App de listas hecho con Angular, Tailwind, typescript y la api de Gemini .",
-    image: "https://astro.build/assets/social/astro-og.webp",
+    image: "../../public/images/proyects/gemini-app.webp",
     link: "https://larasoft123.github.io/app-listas-gemini/",
     tags: [
       tags.ts,
@@ -136,6 +139,44 @@ export const ProyectsList: Proyect[] = [
   
     ],
     github: "https://github.com/Larasoft123/app-listas-gemini",
-    date: "July 2024",
+    date: "Jan 2025",
   },
+  {
+    name: "App de países",
+    description: "App de países hecho con React Js, Tailwind, typescript y la api REST Countries",
+    image: "../../public/images/proyects/Countries-app.webp",
+    link: "https://countries-app-pi-black.vercel.app/",
+    tags: [
+      tags.ts,
+      tags.css,
+      tags.html,
+      tags.react,
+      tags.tailwind,
+      tags.vite
+
+  
+    ],
+    github: "https://github.com/Larasoft123/app-countries", 
+    date: "Jan 2025",
+  },
+  {
+    name: "La velada del año V",
+    description: "Participación en el proyecto de 'La Velada del Año V' liderado por la comunidad de Midudev,  el evento más esperado organizado por Ibai Llanos.",
+    image: "../../public/images/proyects/Velada.webp",
+    link: "https://la-velada-web-oficial-h4wiyiv2f-midudev-pro.vercel.app/",
+    tags: [
+      tags.ts,
+      tags.css,
+      tags.html,
+      tags.astro,
+      tags.js,
+      tags.tailwind,
+
+
+  
+    ],
+    github: "https://github.com/midudev/la-velada-web-oficial", 
+    date: "April 2025",
+  }
+
 ];
