@@ -1,74 +1,59 @@
 ---
-import Container from "../components/container.astro";
-import Badge from "../components/Badge.astro";
-import Image from "astro/components/Image.astro";
+import Container from "@/components/container.astro";
+import TextSection from "@/components/TextSection.astro";
 import Moises from "../assets/img/Moises.jpg";
-import { Presentation } from "@/consts/presentation";
-import SocialLink from "@/components/SocialLink.astro";
-import { Socials } from "@/consts/Socials";
+import { Image } from "astro:assets";
 ---
 
-<Container className="mt-36" id="about">
-  <article
-    class="flex flex-col justify-center w-full items-center gap-4 relative"
-  >
-    <div class="gap-x-8 flex items-center animate-fade-in-up">
-      <div class="">
-        <picture>
-          <Image
-            src={Moises}
-            alt="Moisés"
-            width="200"
-            height="200"
-            class="rounded-full h-36 w-auto mask-fade-image bg-center"
-          />
-        </picture>
+<Container id="AboutMe">
+  <TextSection name="Sobre mí" className="text-yellow-400 cover-animation">
+    <article slot="content" class="grid grid-cols-12 items-start gap-y-4 text-white/95 mb-60  mt-20 lg:mt-5">
+
+      <div class="col-span-12 relative justify-center md:justify-start  md:col-span-4 flex">
+        <Image
+      
+          src={Moises}
+          alt="Moisés"
+          width="200"
+          height="200"
+          class="h-50  rounded-xl w-auto mask-fade-image bg-center"
+        />
+
+  
       </div>
-    </div>
 
-    <span class="animate-zoom-in animate-delay-100">
-      <Badge>{Presentation.title} </Badge>
-    </span>
+      <div class="col-span-12 md:col-span-8 flex flex-col gap-6 justify-start">
+        <p class="text-pretty text-lg font-garamond">
+          Hola, soy Moisés, pero mis amigos me llaman "Moi". La primera vez que
+          <strong>programé tenía 14 años</strong>, y desde entonces no he podido dejar de
+          programar. Cuando no estoy programando estoy <strong> pensando en como crear
+          algoritmos e interfaces de usuario</strong> atractivas y eficientes y
+          mantenibles.
+        </p>
 
-    <div class="flex items-center mt-4 animate-fade-in-right justify-center">
-      <h1
-        class="text-center text-balance animate-delay-150 font-semibold text-4xl xl:text-5xl"
-      >
-        Hola, soy {Presentation.name} 👋
-      </h1>
-    </div>
+        <p class="text-pretty text-lg">
+          Desde el 2024 he estado haciendo proyectos de código abierto y
+          <strong> colaborando con otros desarrolladores</strong>. A lo largo de los años he
+          aprendido <strong> lenguajes de programación y tecnologías web modernas</strong>, tales
+          cómo: React, Next.js, Tailwind CSS, TypeScript, Node.js, Angular,
+          Javascript, Sass, Css, HTML, Bootstrap, Python, etc.
+        </p>
 
-    <div
-      class="flex justify-center animate-delay-250 animate-fade-in-up text-white/80 items-center"
-    >
-      <h1 class="text-lg text-center text-pretty">
-        +6 Meses de experiencia. <span class="text-amber-400 font-semibold">
-          Desarrollador especializado en la creación de interfaces web
-          funcionales y optimizadas
-        </span>, con experiencia en <span class="text-amber-400 font-semibold">
-          tecnologías modernas
-        </span>para construir aplicaciones eficientes y accesibles.
-      </h1>
-    </div>
-
-    <div id="socials-container" class="w-full flex justify-between items-center">
-      {
-        Socials.map((social) => (
-          <SocialLink href={social.href} className="w-10 h-auto">
-            <div class="social" slot={"icon-left"}>
-              <social.Icon
-              
-                className={
-                  "w-10 h-auto text-white opacity-85  hover:opacity-100 "
-                }
-              />
-            </div>
-          </SocialLink>
-        ))
-      }
-    </div>
-  </article>
+        <p class="text-pretty text-lg">
+          Actualmente estoy estudiando sobre  <strong> el mundo de la programación y
+          desarrollo web </strong>. Me gusta trabajar en proyectos desafiantes que me
+          permitan crecer como desarrollador y contribuir a la comunidad de
+          código abierto.
+        </p>
+      </div>
+    </article>
+  </TextSection>
 </Container>
 
-<style></style>
 
+<style>
+  strong {
+    color: white !important;
+  }
+
+</style>
