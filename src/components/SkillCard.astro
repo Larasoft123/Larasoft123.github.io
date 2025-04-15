@@ -17,7 +17,7 @@ const { image, name } = Astro.props;
 
 
 
-<a
+<div
   class={`flex group relative z-10 logo flex-col items-center p-1 justify-center ${image.className}`}
   data-id={name}
   
@@ -29,7 +29,7 @@ const { image, name } = Astro.props;
     height={image.height}
     alt={name}
   />
-</a>
+</div>
 
 
 <style>
