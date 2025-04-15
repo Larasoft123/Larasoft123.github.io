@@ -21,10 +21,10 @@ const msg = name === "Gmail" ? "Enviar un email a Moises al correo moisesdavidla
   aria-describedby="tooltip-social"
   class={`flex items-center cursor-pointer transition-transform hover:scale-105 py-2 px-4 justify-center duration-300 gap-2 ${ClassName} `}
 >
-<span>
+<span  class={`${ClassName} `}>
   
     <slot name="icon-left"/>
-    <slot name="tittle"/>
+    <slot name="title"/>
     <slot name="icon-right"/>
 </span>
 </a>
