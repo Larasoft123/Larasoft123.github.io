@@ -4,27 +4,30 @@ import MenuBtn from "@/assets/icons/MenuBtn.astro";
 const LinkstoSections = [
   {
     name: "Home",
-    href: "#Intro",
+    href: `#Intro`,
     label: "Intro",
   },
   {
     name: "Projects",
-    href: "#projects",
+    href: `#projects`,
     label: "projects",
   },
   {
-    name: "Skills",
-    href: "#skills",
+    name : "Skills",
+    href : `#skills`,
     label: "skills",
   },
   {
     name: "About",
-    href: "#AboutMe",
+    href: `AboutMe`,
     label: "AboutMe",
   },
-
-
 ];
+
+
+
+
+
 ---
 
 <header
@@ -112,70 +115,70 @@ const LinkstoSections = [
 </header>
 
 <script>
-  const sections = document.querySelectorAll("section");
-  const linksHeader = document.querySelectorAll("header nav a");
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section");
+    const linksHeader = document.querySelectorAll("header nav a");
 
-  const options = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.3,
-  };
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    };
 
-  const callback = (entries: any[]) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        linksHeader.forEach((item) => {
-          const label = item.getAttribute("aria-label");
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          linksHeader.forEach((item) => {
+            const label = item.getAttribute("aria-label");
 
-          console.log({
-            label,
-            id: entry.target.id,
+            if (label == entry.target.id) {
+              item.classList.add("text-primary");
+            } else {
+              item.classList.remove("text-primary");
+            }
           });
-          if (label == entry.target.id) {
-            item.classList.add("text-primary");
-          } else {
-            item.classList.remove("text-primary");
-          }
+        }
+      });
+    };
+
+    let observer = new IntersectionObserver(callback, options);
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect();
+      } else {
+        sections.forEach((section) => {
+          observer.observe(section);
         });
       }
-    });
-  };
-
-  let observer = new IntersectionObserver(callback, options);
-
-  sections.forEach((section) => {
-    observer.observe(section);
+    };
   });
-
-  document.onvisibilitychange = () => {
-    if (document.visibilityState === "hidden") {
-      observer.disconnect();
-    } else {
-      sections.forEach((section) => {
-        observer.observe(section);
-      });
-    }
-  };
 </script>
 
 <!-- menu -->
 <script>
-  const menuBtn = document.getElementById("menuBtn");
+  document.addEventListener("astro:page-load", () => {
+    const menuBtn = document.getElementById("menuBtn");
 
-  const mobileMenu = document.getElementById(
-    "mobile-menu"
-  ) as HTMLDialogElement;
-  const closeMenuBtn = document.getElementById("close-menu-button");
+    const mobileMenu = document.getElementById(
+      "mobile-menu"
+    ) as HTMLDialogElement;
+    const closeMenuBtn = document.getElementById("close-menu-button");
 
-  closeMenuBtn?.addEventListener("click", () => {
-    mobileMenu.close();
-  });
+    closeMenuBtn?.addEventListener("click", () => {
+      mobileMenu.close();
+    });
 
-  function toggleMenu() {
-    mobileMenu.open ? mobileMenu.close() : mobileMenu.showModal();
-  }
+    function toggleMenu() {
+      mobileMenu.open ? mobileMenu.close() : mobileMenu.showModal();
+    }
 
-  menuBtn?.addEventListener("click", () => {
-    toggleMenu();
+    menuBtn?.addEventListener("click", () => {
+      toggleMenu();
+    });
   });
 </script>
