@@ -10,6 +10,8 @@ export default defineConfig({
     svg: true,
   },
 
+  
+
 
   vite: {
     plugins: [tailwindcss()],
