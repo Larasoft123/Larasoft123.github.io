@@ -1,0 +1,86 @@
+---
+import Container from "@/components/container.astro";
+import Layout from "../../layouts/Layout.astro";
+import { ProyectsList } from "@/consts/Proyects";
+import GitHub from "@/assets/socials/GitHub.astro";
+import SocialLink from "@/components/SocialLink.astro";
+import WatchMore from "@/assets/icons/WatchMore.astro";
+export function getStaticPaths() {
+  return ProyectsList.map((proyect) => {
+    return {
+      params: { name: proyect.name },
+      props: { proyect },
+    };
+  });
+}
+
+export const prerender = true;
+
+const { proyect } = Astro.props;
+const { description, image, date, github, link, tags, name } = proyect;
+---
+
+<Layout>
+  <Container id={`proyecto-${name}`} className="max-w-5xl">
+    <article
+    transition:name={`proyecto ${name}`}
+      class="flex gap-y-18 mt-20 flex-col w-full items-center justify-center"
+    >
+      <header>
+        <img
+          transition:name={`img del proyecto ${name}`}
+          src={image}
+          class="w-full mask-fade-center h-auto rounded-xl"
+          alt={`imagen del proyecto ${name}`}
+        />
+      </header>
+
+      <div class="grid grid-cols-12 py-2 w-full">
+        <div
+          class="col-span-3 flex w-full flex-col md:flex-row gap-y-10 items-start py-2 md:py-0 px-4 md:px-0 md:items-center md:justify-around justify-start"
+        >
+          <SocialLink href={github} name="GitHub" ClassName="w-10 h-10">
+            <GitHub slot={"icon-right"} className="w-8 md:w-10 h-auto" />
+          </SocialLink>
+
+          <SocialLink href={link} name="Watch Demo" ClassName="w-10 h-10">
+            <WatchMore slot={"icon-right"} ClassName="w-8 md:w-10 h-auto" />
+          </SocialLink>
+        </div>
+
+        <div
+          class="col-start-4 col-end-10 text-center flex flex-col items-center"
+        >
+          <h2 transition:name={`titulo del proyecto ${name}`} class="text-primary text-balance max-w-lg text-3xl mb-4">
+            {name}
+          </h2>
+
+          <h6 class="text-pretty text-xl text-white/75 max-w-lg mb-4">
+            {date}
+          </h6>
+
+          <p transition:name={`descripcion del proyecto ${name}`} class="text-pretty text-sm text-white/60 max-w-lg">
+            {description}
+          </p>
+        </div>
+
+        <div
+          class="col-span-2 col-start-12 flex flex-col gap-y-6 items-center justify-center"
+        >
+          <div>
+            <h5 class="text-yellow-300 font-semibold text-xl">Tags</h5>
+          </div>
+          <div transition:name={`tags del proyecto ${name}`} class="flex flex-col items-center gap-6 justify-center">
+            {
+              tags.map(({ name, icon }) => (
+                <icon.logo className=" rounded-full h-auto w-8 md:w-10 " />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </article>
+  </Container>
+</Layout>
+
+<style></style>
