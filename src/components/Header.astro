@@ -1,25 +1,33 @@
 ---
-import ThemeToggle from "./ThemeToggle.astro";
+
 import MenuBtn from "@/assets/icons/MenuBtn.astro";
+
+
+const URL = Astro.url.pathname;
+const isHome = URL === "/";
+
+
+console.log("home ", isHome)
+
 const LinkstoSections = [
   {
     name: "Home",
-    href: `#Intro`,
+    href: `${isHome ? ' #Intro' : '/'}`,
     label: "Intro",
   },
   {
     name: "Projects",
-    href: `#projects`,
+    href: `${isHome ? ' #projects' : '/#projects'}`,
     label: "projects",
   },
   {
     name : "Skills",
-    href : `#skills`,
+    href : `${isHome ? '#skills' : '/#skills'}`,
     label: "skills",
   },
   {
     name: "About",
-    href: `#AboutMe`,
+    href: `${isHome ? '#AboutMe' : ' /#AboutMe'}`,
     label: "AboutMe",
   },
 ];
