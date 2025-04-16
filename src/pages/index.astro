@@ -5,14 +5,15 @@ import Intro from "../sections/Intro.astro";
 import Proyects from "@/sections/Proyects.astro";
 import AboutMe from "@/sections/aboutMe.astro";
 import Smoke from "@/components/Smoke.astro";
+import { Presentation } from "@/consts/presentation";
 ---
 
-<Layout>
+<Layout title={`Portafolio web de ${Presentation.name} - ${Presentation.description}`} description={`Portafolio web de ${Presentation.name} - ${Presentation.description}`}>
   <Smoke/>
   <main>
     <Intro />
     <Proyects />
-    <Skills />
+    <Skills  />
     <AboutMe />
   </main>
 </Layout>
