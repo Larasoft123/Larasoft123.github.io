@@ -10,11 +10,14 @@
     "convert-svgs-to-astro": "node scripts/convert-svgs-to-astro.js"
   },
   "dependencies": {
+    "@astrojs/node": "^9.2.0",
     "@midudev/tailwind-animations": "^0.2.0",
     "@tailwindcss/vite": "^4.0.17",
     "animejs": "^4.0.0",
-    "astro": "^5.6.0",
+    "astro": "^5.7.3",
+    "resend": "^4.3.0",
     "sharp": "^0.34.1",
-    "tailwindcss": "^4.0.17"
+    "tailwindcss": "^4.0.17",
+    "zod": "^3.24.3"
   }
 }
