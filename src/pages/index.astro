@@ -6,6 +6,8 @@ import Proyects from "@/sections/Proyects.astro";
 import AboutMe from "@/sections/aboutMe.astro";
 import Smoke from "@/components/Smoke.astro";
 import { Presentation } from "@/consts/presentation";
+// import Contact from "@/sections/Contact.astro";
+import WhatsAppBtn from "@/components/WhatsAppBtn.astro";
 ---
 
 <Layout title={`Portafolio web de ${Presentation.name} - ${Presentation.description}`} description={`Portafolio web de ${Presentation.name} - ${Presentation.description}`}>
@@ -15,6 +17,24 @@ import { Presentation } from "@/consts/presentation";
     <Proyects />
     <Skills  />
     <AboutMe />
+
+    <button class="fixed hidden md:block right-20 bottom-36 animate-fade-in p-2 lg:bottom-28 w-16 h-16 lg:right-22">
+      <WhatsAppBtn />
+    </button>
+   
+
+
+ 
   </main>
 </Layout>
 
+
+
+<style>
+
+  button{
+    animation-timeline: scroll();
+    animation-range: entry 0px cover 600px;
+  }
+  
+</style>
