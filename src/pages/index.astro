@@ -10,31 +10,27 @@ import { Presentation } from "@/consts/presentation";
 import WhatsAppBtn from "@/components/WhatsAppBtn.astro";
 ---
 
-<Layout title={`Portafolio web de ${Presentation.name} - ${Presentation.description}`} description={`Portafolio web de ${Presentation.name} - ${Presentation.description}`}>
-  <Smoke/>
-  <main>
-    <Intro />
-    <Proyects />
-    <Skills  />
-    <AboutMe />
+<Layout
+  title={`Portafolio web de ${Presentation.name} - ${Presentation.description}`}
+  description={`Portafolio web de ${Presentation.name} - ${Presentation.description}`}
+>
+  <!-- <Smoke /> -->
 
-    <button class="fixed hidden md:block right-20 bottom-36 animate-fade-in p-2 lg:bottom-28 w-16 h-16 lg:right-22">
-      <WhatsAppBtn />
-    </button>
-   
+  <Intro />
+  <Proyects />
+  <Skills />
+  <AboutMe />
 
-
- 
-  </main>
+  <button
+    class="fixed hidden md:block right-20 bottom-36 animate-fade-in p-2 lg:bottom-28 w-16 h-16 lg:right-22"
+  >
+    <WhatsAppBtn />
+  </button>
 </Layout>
 
-
-
 <style>
-
-  button{
+  button {
     animation-timeline: scroll();
     animation-range: entry 0px cover 600px;
   }
-  
 </style>
