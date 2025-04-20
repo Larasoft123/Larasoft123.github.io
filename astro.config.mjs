@@ -16,7 +16,7 @@ export default defineConfig({
 
   // },
 
-  output: "server",
+
 
   vite: {
     
