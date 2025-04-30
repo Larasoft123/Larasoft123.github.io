@@ -22,6 +22,9 @@ import WhatsAppBtn from "@/components/WhatsAppBtn.astro";
   <AboutMe />
 
   <button
+  aria-describedby={`boton de ir a  escribir al whassapt de ${Presentation.name}`}
+
+  aria-label="abrir whassapt"
     class="fixed hidden md:block right-20 bottom-36 animate-fade-in p-2 lg:bottom-28 w-16 h-16 lg:right-22"
   >
     <WhatsAppBtn />
