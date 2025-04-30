@@ -161,6 +161,10 @@ const LinkstoSections = [
       mobileMenu.close();
     });
 
+    mobileMenu.addEventListener("click", ()=> {
+      toggleMenu()
+    })
+
     function toggleMenu() {
       mobileMenu.open ? mobileMenu.close() : mobileMenu.showModal();
     }
