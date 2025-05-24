@@ -1,34 +1,34 @@
 import type { Tecnologies } from "../types/tecnologiesType";
-import angular from "@/assets/Logos/angular.astro";
-import react from "@/assets/Logos/react_wordmark_dark.astro";
-import vue from "@/assets/Logos/vue.astro";
-import node from "@/assets/Logos/nodejs.astro";
-import javascript from "@/assets/Logos/javascript.astro";
-import tailwindcss from "@/assets/Logos/tailwindcss-wordmark-dark.astro";
-import typescript from "@/assets/Logos/typescript.astro";
-import sass from "@/assets/Logos/sass.astro";
-import bootstrap from "@/assets/Logos/bootstrap.astro";
-import astro from "@/assets/Logos/astro-icon-light-gradient.astro";
-import rxjs from "@/assets/Logos/rxjs.astro";
-import html5 from "@/assets/Logos/html5.astro";
-import vercel from "@/assets/Logos/vercel_wordmark_dark.astro";
-import midudev from "@/assets/Logos/midudev.astro";
-import Git from "@/assets/Logos/Git.astro";
-import Vitejs from "@/assets/Logos/vitejs.astro";
-import Python from "@/assets/Logos/python.astro";
-import NextJs from "@/assets/Logos/NextJs.astro";
-import Css from "@/assets/Logos/Css.astro";
+import angular from "@/assets/Logos/angular.svg?url";
+import react from "@/assets/Logos/react_wordmark_dark.svg?url";
+import vue from "@/assets/Logos/vue.svg?url";
+import node from "@/assets/Logos/nodejs.svg?url";
+import javascript from "@/assets/Logos/javascript.svg?url";
+import tailwindcss from "@/assets/Logos/tailwindcss-wordmark-dark.svg?url";
+import typescript from "@/assets/Logos/typescript.svg?url";
+import sass from "@/assets/Logos/sass.svg?url";
+import bootstrap from "@/assets/Logos/bootstrap.svg?url";
+// import astro from "@/assets/Logos/svg?url-icon-light-gradient.svg?url";
+import rxjs from "@/assets/Logos/rxjs.svg?url";
+import html5 from "@/assets/Logos/html5.svg?url";
+import vercel from "@/assets/Logos/vercel_wordmark_dark.svg?url";
+import midudev from "@/assets/Logos/midudev.svg?url";
+import Git from "@/assets/Logos/Git.svg?url";
+import Vitejs from "@/assets/Logos/vitejs.svg?url";
+// import Python from "@/assets/Logos/python.svg?url";
+import NextJs from "@/assets/Logos/NextJs.svg?url";
+import Css from "@/assets/Logos/Css.svg?url";
 
 export const tecnologies: Tecnologies[] = [
-  {
-    name: "Angular",
-    image: {
-      logo: angular,
-      width: 100,
-      height: 100,
-      className: "w-10 sm:w-12 xl:w-14",
+    {
+      name: "Angular",
+      image: {
+        logo: angular,
+        width: 100,
+        height: 100,
+        className: "w-10 sm:w-12 xl:w-14",
+      },
     },
-  },
   {
     name: "React",
     image: {
@@ -119,15 +119,15 @@ export const tecnologies: Tecnologies[] = [
       className: "w-10 sm:w-12 xl:w-14",
     },
   },
-  {
-    name: "Astro",
-    image: {
-      logo: astro,
-      width: 100,
-      height: 100,
-      className: "w-10 sm:w-12 xl:w-14",
-    },
-  },
+  // {
+  //   name: "Astro",
+  //   image: {
+  //     logo: astro,
+  //     width: 100,
+  //     height: 100,
+  //     className: "w-10 sm:w-12 xl:w-14",
+  //   },
+  // },
   {
     name: "RxJS",
     image: {
@@ -176,13 +176,13 @@ export const tecnologies: Tecnologies[] = [
       className: "w-10 sm:w-12 xl:w-14",
     },
   },
-  {
-    name: "Python",
-    image: {
-      logo: Python,
-      width: 100,
-      height: 100,
-      className: "w-10 sm:w-12 xl:w-14",
-    },
-  },
+  // {
+  //   name: "Python",
+  //   image: {
+  //     logo: Python,
+  //     width: 100,
+  //     height: 100,
+  //     className: "w-10 sm:w-12 xl:w-14",
+  //   },
+  // },
 ];
