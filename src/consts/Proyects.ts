@@ -1,21 +1,21 @@
 import { type Proyect } from "@/types/proyectType";
-import angular from "@/assets/Logos/angular.astro";
-import react from "@/assets/Logos/react_wordmark_dark.astro";
-import vue from "@/assets/Logos/vue.astro";
-import node from "@/assets/Logos/nodejs.astro";
-import javascript from "@/assets/Logos/javascript.astro";
-import tailwindcss from "@/assets/Logos/tailwindcss-wordmark-dark.astro";
-import typescript from "@/assets/Logos/typescript.astro";
-import sass from "@/assets/Logos/sass.astro";
-import bootstrap from "@/assets/Logos/bootstrap.astro";
-import astro from "@/assets/Logos/astro-icon-light-gradient.astro";
-import rxjs from "@/assets/Logos/rxjs.astro";
-import html5 from "@/assets/Logos/html5.astro";
-import Git from "@/assets/Logos/Git.astro";
-import Vitejs from "@/assets/Logos/vitejs.astro";
-import Python from "@/assets/Logos/python.astro";
-import Css from "@/assets/Logos/Css.astro";
-import NextJs from "@/assets/Logos/NextJs.astro";
+import angular from "@/assets/Logos/angular.svg";
+import react from "@/assets/Logos/react_wordmark_dark.svg";
+import vue from "@/assets/Logos/vue.svg";
+import node from "@/assets/Logos/nodejs.svg";
+import javascript from "@/assets/Logos/javascript.svg";
+import tailwindcss from "@/assets/Logos/tailwindcss-wordmark-dark.svg";
+import typescript from "@/assets/Logos/typescript.svg";
+import sass from "@/assets/Logos/sass.svg";
+import bootstrap from "@/assets/Logos/bootstrap.svg";
+// import astro from "@/assets/Logos/svg-icon-light-gradient.svg";
+import rxjs from "@/assets/Logos/rxjs.svg";
+import html5 from "@/assets/Logos/html5.svg";
+import Git from "@/assets/Logos/Git.svg";
+import Vitejs from "@/assets/Logos/vitejs.svg";
+import Python from "@/assets/Logos/python.svg";
+import Css from "@/assets/Logos/Css.svg";
+import NextJs from "@/assets/Logos/NextJs.svg";
 
 
 
@@ -63,12 +63,12 @@ const tags = {
       logo: tailwindcss,
     },
   },
-  astro: {
-    name: "astro",
-    icon: {
-      logo: astro,
-    },
-  },
+  // astro: {
+  //   name: "astro",
+  //   icon: {
+  //     logo: astro,
+  //   },
+  // },
   vite: {
     name: "vite",
     icon: {
@@ -168,7 +168,7 @@ export const ProyectsList: Proyect[] = [
       tags.ts,
       tags.css,
       tags.html,
-      tags.astro,
+      // tags.astro,
       tags.js,
       tags.tailwind,
 
