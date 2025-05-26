@@ -8,8 +8,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "convert-svgs-to-astro": "node scripts/convert-svgs-to-astro.js",
-     "convert-astro-to-svg": "node scripts/astro-to-svg.js"
-
+    "convert-astro-to-svg": "node scripts/astro-to-svg.js"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
@@ -18,7 +17,6 @@
     "@tailwindcss/vite": "^4.0.17",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
-    "animejs": "^4.0.0",
     "astro": "^5.8.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
