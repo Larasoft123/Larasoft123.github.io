@@ -1,75 +1,47 @@
 ---
 import Container from "../components/container.astro";
-import Badge from "../components/Badge.astro";
-import Image from "astro/components/Image.astro";
-import Moises from "../assets/img/Moises.jpg";
-import { Presentation } from "@/consts/presentation";
-import SocialLink from "@/components/SocialLink.astro";
-import { Socials } from "@/consts/Socials";
+
+import AboutMe from "@/sections/aboutMe.astro";
+import ContentIntro from "@/components/ContentIntro.astro";
 ---
 
-<Container className="mt-36 " id="Intro">
-  <article
-    class="flex flex-col  lg:px-0 px-6 justify-center w-full items-center gap-4 relative"
+<Container
+  className="mt-40 flex flex-col items-center justify-center "
+  id="Intro"
+>
+ 
+<label
+    for="controler-checkbox"
+    class="inline-flex gap-4 mb-8 text-center justify-center flex-col items-center cursor-pointer"
   >
-    <div class="gap-x-8 flex items-center animate-fade-in-up animate-delay-50">
-      <div class="">
-        <picture>
-          <Image
-          loading={"eager"}
-            src={Moises}
-            alt="Moisés"
-            width="200"
-            height="200"
-            class="rounded-full h-36 w-auto mask-fade-image bg-center"
-          />
-        </picture>
-      </div>
-    </div>
-
-    <span class="animate-zoom-in animate-delay-100">
-      <Badge>{Presentation.title} </Badge>
-    </span>
-
-    <div class="flex items-center mt-4 animate-fade-in-right justify-center">
-      <h1
-        class="text-center text-balance animate-delay-200 font-semibold text-4xl xl:text-5xl"
-      >
-        Hola, soy <span class="text-primary/80"> {Presentation.name}</span> 👋
-      </h1>
-    </div>
-
+    <input type="checkbox" id="ui-switch" class="hidden peer/switch" />
     <div
-      class="flex justify-center animate-delay-350 animate-fade-in-up text-white/80 items-center"
+      class="relative  w-11 h-6 bg-sky-800/80 peer-focus/switch:outline-none peer-focus/switch:ring-4 peer-focus/switch:ring-blue-300 dark:peer-focus/switch:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked/switch:after:translate-x-full rtl:peer-checked/switch:after:-translate-x-full peer-checked/switch:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked/switch:bg-blue-600 dark:peer-checked/switch:bg-blue-600"
     >
-      <h1 class="text-lg text-center text-pretty">
-       <span class="text-amber-400 font-semibold">
-          Desarrollador especializado en la creación de interfaces web
-          funcionales y optimizadas</span>, con experiencia en <span class="text-amber-400 font-semibold">
-          tecnologías modernas
-        </span>para construir aplicaciones eficientes y accesibles.
-    
-      </h1>
     </div>
+      <!-- <span class="text-sm font-medium">Ver más</span> -->
+  </label>
 
-    <footer id="socials-container" class="w-full flex justify-between items-center">
-      {
-        Socials.map((social) => (
-          <SocialLink href={social.href} name={social.name} ClassName="w-10 h-auto">
-            <div class="social" slot={"icon-left"}>
-              <social.Icon
-              
-                className={
-                  "w-10 h-auto text-white opacity-85 animate-fade-in-up animate-delay-500  hover:opacity-100 "
-                }
-              />
-            </div>
-          </SocialLink>
-        ))
-      }
-    </footer>
-  </article>
+  <input type="checkbox" id="controler-checkbox" class="peer hidden" />
+
+
+  <ContentIntro />
+  <AboutMe />
 </Container>
 
-<style></style>
+<script>
+  const CrtlCheckbox = document.getElementById(
+    "controler-checkbox"
+  ) as HTMLInputElement;
+  const UiCheckbox = document.getElementById("ui-switch") as HTMLInputElement;
 
+  CrtlCheckbox?.addEventListener("change", (event) => {
+    const target = event.target as HTMLInputElement;
+
+    if (target.checked) {
+      UiCheckbox.checked = true;
+    } else {
+      UiCheckbox.checked = false;
+    }
+  });
+</script>
