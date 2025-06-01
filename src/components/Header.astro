@@ -21,11 +21,7 @@ const LinkstoSections = [
     href: `${isHome ? "#skills" : "/#skills"}`,
     label: "skills",
   },
-  {
-    name: "About",
-    href: `${isHome ? "#AboutMe" : " /#AboutMe"}`,
-    label: "AboutMe",
-  },
+
 ];
 ---
 
@@ -158,7 +154,7 @@ const LinkstoSections = [
     const closeMenuBtn = document.getElementById("close-menu-button");
 
     closeMenuBtn?.addEventListener("click", () => {
-      mobileMenu.close();
+      toggleMenu();
     });
 
     mobileMenu.addEventListener("click", ()=> {
