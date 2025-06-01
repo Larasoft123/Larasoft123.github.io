@@ -2,6 +2,7 @@
 import Container from "../components/container.astro";
 
 import AboutMe from "@/sections/aboutMe.astro";
+import Badge from "@/components/Badge.astro";
 import ContentIntro from "@/components/ContentIntro.astro";
 ---
 
@@ -9,39 +10,52 @@ import ContentIntro from "@/components/ContentIntro.astro";
   className="mt-40 flex flex-col items-center justify-center "
   id="Intro"
 >
- 
-<label
-    for="controler-checkbox"
-    class="inline-flex gap-4 mb-8 text-center justify-center flex-col items-center cursor-pointer"
-  >
-    <input type="checkbox" id="ui-switch" class="hidden peer/switch" />
-    <div
-      class="relative  w-11 h-6 bg-sky-800/80 peer-focus/switch:outline-none peer-focus/switch:ring-4 peer-focus/switch:ring-blue-300 dark:peer-focus/switch:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked/switch:after:translate-x-full rtl:peer-checked/switch:after:-translate-x-full peer-checked/switch:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked/switch:bg-blue-600 dark:peer-checked/switch:bg-blue-600"
-    >
-    </div>
-      <!-- <span class="text-sm font-medium">Ver más</span> -->
-  </label>
-
-  <input type="checkbox" id="controler-checkbox" class="peer hidden" />
-
-
   <ContentIntro />
   <AboutMe />
+
+  <Badge isDark={true} Class="mt-12 mb-8"
+    >
+    <button>
+      <label
+        for="controler-checkbox"
+        class="inline-flex text-center justify-center flex-col items-center cursor-pointer"
+      >
+        <span id="text-content">Ver mas</span>
+      </label>
+    </button>
+  </Badge>
+  <input type="checkbox" id="controler-checkbox" class="peer hidden" />
 </Container>
 
 <script>
-  const CrtlCheckbox = document.getElementById(
-    "controler-checkbox"
-  ) as HTMLInputElement;
-  const UiCheckbox = document.getElementById("ui-switch") as HTMLInputElement;
+  document.addEventListener("astro:page-load", () => {
+    // elementos del DOM
+    const CrtlCheckbox = document.getElementById(
+      "controler-checkbox"
+    ) as HTMLInputElement;
+    const AboutSection = document.getElementById("AboutMe") as HTMLElement;
+    const introContent = document.getElementById(
+      "intro-content"
+    ) as HTMLElement;
+    const textContent = document.getElementById(
+      "text-content"
+    ) as HTMLButtonElement;
 
-  CrtlCheckbox?.addEventListener("change", (event) => {
-    const target = event.target as HTMLInputElement;
+    CrtlCheckbox?.addEventListener("change", (event) => {
+      const target = event.target as HTMLInputElement;
+      if (target.checked) {
+        AboutSection?.classList.remove("hidden");
+        introContent?.classList.add("hidden");
+        AboutSection?.classList.add("block");
+        textContent.innerHTML = "Ver menos";
+        return;
+      }
 
-    if (target.checked) {
-      UiCheckbox.checked = true;
-    } else {
-      UiCheckbox.checked = false;
-    }
+      AboutSection?.classList.remove("block");
+      introContent?.classList.remove("hidden");
+      introContent?.classList.add("block");
+      AboutSection?.classList.add("hidden");
+      textContent.innerHTML = "Ver más";
+    });
   });
 </script>
