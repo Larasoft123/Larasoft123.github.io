@@ -18,7 +18,7 @@ export const SkillCard = ({ name, image }: SkillCardProps) => (
 
     >
         
-         <img  src={image.logo} alt={name} />
+         <img decoding="async" loading="lazy"  src={image.logo} alt={name} />
            
                     
         
