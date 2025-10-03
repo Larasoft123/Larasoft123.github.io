@@ -5,13 +5,12 @@
 /* @custom-variant dark (&:where(.dark, .dark *)); */
 
 @theme {
-  --color-theme-background: #151a36;
+  --color-theme-background: #1173d4;
   --color-primary: #51e4b8;
 
   --gradient: linear-gradient(to right, #884aff, #e93330);
   --color-theme-text: #fff;
   --color-theme-scrollbar: #fff;
-
 }
 
 @layer base {
@@ -53,12 +52,10 @@
 @keyframes blur-shadow-black {
   0% {
     backdrop-filter: blur(0px);
-
   }
   100% {
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.4);
-
   }
 }
 
@@ -100,20 +97,19 @@
 /* utility classes */
 
 @utility entry-animation {
-  animation: entry-animation  linear both;
+  animation: entry-animation linear both;
   animation-timeline: view();
   animation-range: entry 0% cover 25%;
 }
 
 @utility cover-animation {
-
-  animation: cover-animation  linear both;
+  animation: cover-animation linear both;
   animation-timeline: view();
   animation-range: entry 0% cover 25%;
 }
 
-@utility  up-animation {
-  animation:  up-animation linear both;
+@utility up-animation {
+  animation: up-animation linear both;
   animation-timeline: view();
   animation-range: entry 10% cover 45%;
 }
@@ -180,28 +176,21 @@ html {
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   @keyframes marquee {
-  from {
-    transform: translateX(0);
-
+    from {
+      transform: translateX(0);
     }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
-
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
     }
-
   }
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
-
+    from {
+      transform: translateY(0);
     }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
-
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
     }
-
   }
-
 }
 
 :root {
@@ -237,7 +226,6 @@ html {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-
 }
 
 .dark {
@@ -272,7 +260,6 @@ html {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-
 }
 
 /* @layer base {
@@ -286,4 +273,3 @@ html {
   }
 
 } */
-

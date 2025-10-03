@@ -1,12 +1,12 @@
 ---
-// import Container from "../components/container.astro";
+import Container from "../components/container.astro";
 import { tecnologies } from "../consts/tecnologies";
 // import SkillCard from "@/components/SkillCard.astro";
 import TextSection from "@/components/TextSection.astro";
 import { SkillSlider } from "@/components/SkillSlider";
 ---
 
-<section class="mt-40 mb-60 " id="skills">
+<Container id="skills">
   <TextSection name="Skills" className="text-amber-400 entry-animation  ">
     <div slot="content" class=" lg:mt-5">
       <div id="container-skillCards" class="w-full">
@@ -14,7 +14,7 @@ import { SkillSlider } from "@/components/SkillSlider";
       </div>
     </div>
   </TextSection>
-</section>
+</Container>
 
 <!-- <script>
   document.addEventListener("astro:page-load", () => {
