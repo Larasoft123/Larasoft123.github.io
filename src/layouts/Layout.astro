@@ -13,27 +13,30 @@ const { description, title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" class="bg-theme-background    overflow-x-hidden  w-screen min-h-screen  text-theme-text">
+<html lang="es" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta
       name="keywords"
-      content="Astro, AstroJs, Portafolio, Portfolio, AnimeJS, Javascript, Js, Ts, Typerscript, Css, HTML, TailwindCss, View Transitions Api, La Velada, Juego de Memoria, Skills, Proyects"
+      content="Astro, AstroJs, Portafolio, Portfolio, Javascript, Js, Ts, Typerscript, Css, HTML, TailwindCss, View Transitions Api, La Velada, Juego de Memoria, Skills, Proyects"
     />
     <meta name="description" content={description} />
+
     <ClientRouter />
 
     <title>{title}</title>
   </head>
   <body
-    class="w-screen relative  min-h-screen overflow-x-hidden "
+    class="bg-background text-primary min-h-screen w-full overflow-x-hidden"
   >
     <Header transition:persist />
- 
+
+    <main class="">
       <slot />
- 
+    </main>
+
     <Footer transition:persist />
   </body>
 </html>
