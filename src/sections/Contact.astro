@@ -1,0 +1,45 @@
+---
+import Container from "@/components/container.astro";
+---
+
+<Container id={`Contact`}>
+  <div class="w-full flex justify-center items-center">
+    <button
+      id="contact-btn"
+      class="rounded-full cursor-pointer bg-sky-500 px-4 py-2 text-white hover:bg-sky-600 transition-all duration-300"
+      >Contacto</button
+    >
+  </div>
+</Container>
+
+<script>
+  const $btn = document.querySelector(`#contact-btn`) as HTMLButtonElement;
+
+
+  $btn.addEventListener(`click`, sendEmail);
+
+
+
+
+
+  async function sendEmail () {
+    // FD > FormData
+    const FD = new FormData();
+    FD.append(`name`, `Junn`);
+    FD.append(`email`, `juan@gmail.com`);
+    FD.append(`message`, `Hola, soy Juan`);
+
+    const response = await fetch(`/api/sendEmail`, {
+      method: `POST`,
+      body: FD
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+  };
+
+
+
+  
+</script>
