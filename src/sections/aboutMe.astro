@@ -1,74 +1,56 @@
 ---
-import Container from "@/components/container.astro";
-import TextSection from "@/components/TextSection.astro";
-import Moises from "../assets/img/Moises.jpg";
-import { Image } from "astro:assets";
+import Badge from "@/components/Badge.astro";
+import { tecnologies } from "@/consts/tecnologies";
+import Experience from "@/components/Experience.astro";
+import Education from "@/components/Education.astro";
 ---
 
-
-
-
-
-<Container id="AboutMe" className="hidden  translate-x-[0%] transition-transform duration-100 starting:-translate-x-full">
-    <TextSection name="Sobre mí" className="text-yellow-400">
+<section class="w-full flex-1">
+  <header
+    class="py-20 text-white"
+    style="background-image: url('image-e41c4d9241514781b0a8809a4731f821');"
+  >
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <div
-        slot="content"
-        class="grid grid-cols-12 items-start gap-y-4 text-white/95  mt-12 lg:mt-5"
+        class="flex flex-col items-center gap-8 bg-black/50 p-8 rounded-xl backdrop-blur-sm"
       >
         <div
-          class="col-span-12 relative justify-center md:justify-start md:col-span-4 flex"
+          class="size-32 rounded-full bg-cover bg-center"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA1aAfvWmu2jc_riQFr4QBuPPla2e0-aS47px_QBWC1aLaIp3gTNI2TI3LdXM-yNjA7aKjAo8E0ghSi-QZfFgFxEzMWajxxc6he5wE3IM0QnVKZmdADF84RMXiU6hO_KHPPO_43Obpte865RA5oEhKm3a1YwYzRNWCDtKIIa0iIEuSrCy4AXqah-dfA0FHq2z6iBpaUrsl87J3G8NUT00tbqkHFDpDkgiuip1eDtq5CIYPt-vhR525Xtjvq6YQ4Et7NpuW7vyLj1b76");'
         >
-          <Image
-            src={Moises}
-            alt="Moisés"
-            width="200"
-            height="200"
-            class="h-50 rounded-xl w-auto mask-fade-image bg-center"
-          />
         </div>
-
-        <div
-          class="col-span-12 mt-8 md:mt-0 md:col-span-8 flex text-center md:text-start flex-col gap-6 justify-start"
-        >
-          <p class="text-pretty text-lg font-garamond">
-            Hola, soy Moisés, pero mis amigos me llaman "Moi". La primera vez
-            que
-            <strong>programé tenía 14 años</strong>, y desde entonces no he
-            podido dejar de programar. Cuando no estoy programando estoy <strong
-            >
-              pensando en como crear algoritmos e interfaces de usuario</strong
-            > atractivas, eficientes y mantenibles.
-          </p>
-
-          <p class="text-pretty text-lg">
-            Desde el 2024 he estado haciendo proyectos de código abierto y
-            <strong> colaborando con otros desarrolladores</strong>. A lo largo
-            de los años he aprendido <strong>
-              lenguajes de programación y tecnologías web modernas</strong
-            >, tales cómo: React, Next.js, Tailwind CSS, TypeScript, Node.js,
-            Angular, Javascript, Sass, Css, HTML, Bootstrap, Python, etc.
-          </p>
-
-          <p class="text-pretty text-lg">
-            Actualmente estoy estudiando sobre <strong>
-              el mundo de la programación y desarrollo web
-            </strong>. Me gusta trabajar en proyectos desafiantes que me
-            permitan crecer como desarrollador y contribuir a la comunidad de
-            código abierto.
+        <div class="text-center">
+          <h1 class="text-3xl font-bold text-white">Alejandro Ramirez</h1>
+          <p class="mt-1 text-lg text-white/80">
+            Desarrollador Fullstack Especializado en Front-end
           </p>
         </div>
       </div>
-    </TextSection>
-  </Container>
+    </div>
+  </header>
+  <footer class="mx-auto w-full max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="mt-16 grid grid-cols-1 gap-16 md:grid-cols-3">
+      <div class="md:col-span-2">
+        <Experience />
+        <Education />
+      </div>
 
-
-
-
-
-
-
-<style>
-  strong {
-    color: white !important;
-  }
-</style>
+      <div class="space-y-8">
+        <section>
+          <h2 class="text-2xl font-bold text-white">Habilidades</h2>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {tecnologies.map(({ name }) => <Badge text={name} />)}
+          </div>
+        </section>
+        <section>
+          <h2 class="text-2xl font-bold text-white">Intereses</h2>
+          <p class="mt-4 text-white/80">
+            En mi tiempo libre, disfruto explorar nuevas tecnologías, contribuir
+            a proyectos de código abierto y participar en comunidades de
+            desarrollo. También me apasiona la fotografía y el senderismo.
+          </p>
+        </section>
+      </div>
+    </div>
+  </footer>
+</section>
