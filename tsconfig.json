@@ -6,7 +6,6 @@
     "ignoreDeprecations": "6.0",
     "baseUrl": "./",
     "strict": true,
-    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
