@@ -1,45 +1,79 @@
 ---
-import Container from "@/components/container.astro";
+import Button from "@/components/Button.astro";
 ---
 
-<Container id={`Contact`}>
-  <div class="w-full flex justify-center items-center">
-    <button
-      id="contact-btn"
-      class="rounded-full cursor-pointer bg-sky-500 px-4 py-2 text-white hover:bg-sky-600 transition-all duration-300"
-      >Contacto</button
-    >
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+      Get in Touch
+    </h2>
+    <p class="mt-4 text-lg leading-8 text-gray-400">
+      I'm always open to discussing new projects, creative ideas, or
+      opportunities to be part of your visions. Feel free to reach out!
+    </p>
   </div>
-</Container>
+  <div class="mt-16 max-w-xl mx-auto">
+    <div
+      class="bg-surface-dark p-8 rounded-xl shadow-2xl relative overflow-hidden"
+    >
+      <div
+        class="absolute top-0 right-0 -mt-16 -mr-16 w-48 h-48 bg-primary/20 rounded-full opacity-50"
+      >
+      </div>
+      <div
+        class="absolute bottom-0 left-0 -mb-24 -ml-12 w-64 h-64 bg-primary/10 rounded-full opacity-50"
+      >
+      </div>
+      <form action="#" class="relative z-10 space-y-8" method="POST">
+        <div class="relative">
+          <input
+            autocomplete="name"
+            class="form-input peer"
+            id="name"
+            name="name"
+            placeholder=" "
+            type="text"
+          />
+          <label class="form-label" for="name">Your Name</label>
+        </div>
+        <div class="relative">
+          <input
+            autocomplete="email"
+            class="form-input peer"
+            id="email"
+            name="email"
+            placeholder=" "
+            type="email"
+          />
+          <label class="form-label" for="email">Your Email</label>
+        </div>
+        <div class="relative">
+          <textarea
+            class="form-input peer"
+            id="message"
+            name="message"
+            placeholder=" "
+            rows="5"></textarea>
+          <label class="form-label" for="message">Your Message</label>
+        </div>
+        <div class="flex justify-center">
+          <Button text="Send message" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
-<script>
-  const $btn = document.querySelector(`#contact-btn`) as HTMLButtonElement;
+<footer
+  class="bg-surface-light dark:bg-surface-dark border-t border-border-light dark:border-border-dark"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <p
+      class="text-center text-sm text-text-secondary-light dark:text-text-secondary-dark"
+    >
+      © 2024 John Doe. All rights reserved.
+    </p>
+  </div>
+</footer>
 
-
-  $btn.addEventListener(`click`, sendEmail);
-
-
-
-
-
-  async function sendEmail () {
-    // FD > FormData
-    const FD = new FormData();
-    FD.append(`name`, `Junn`);
-    FD.append(`email`, `juan@gmail.com`);
-    FD.append(`message`, `Hola, soy Juan`);
-
-    const response = await fetch(`/api/sendEmail`, {
-      method: `POST`,
-      body: FD
-    });
-
-    const data = await response.json();
-
-    console.log(data);
-  };
-
-
-
-  
-</script>
+<style></style>
