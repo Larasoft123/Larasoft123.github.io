@@ -1,26 +1,20 @@
 ---
-import Container from "../components/container.astro";
+// import Container from "../components/container.astro";
 import { tecnologies } from "../consts/tecnologies";
-import SkillCard from "@/components/SkillCard.astro";
+// import SkillCard from "@/components/SkillCard.astro";
 import TextSection from "@/components/TextSection.astro";
+import { SkillSlider } from "@/components/SkillSlider";
 ---
 
-<Container className="" id="skills">
+<section class="mt-40 mb-60 " id="skills">
   <TextSection name="Skills" className="text-amber-400 entry-animation  ">
-    <div slot="content" class="grid grid-cols-9 gap-y-4 gap-x-2 mt-20 lg:mt-5">
-      <div
-        id="container-skillCards"
-        class="grid grid-cols-4 md:grid-cols-6 xl:grid-cols-8 mt-8 gap-14 relative mx-auto justify-center p-1 items-center lg:mt-14 col-span-full"
-      >
-        {
-          tecnologies.map(({ image, name }) => (
-            <SkillCard image={image} name={name} />
-          ))
-        }
+    <div slot="content" class=" lg:mt-5">
+      <div id="container-skillCards" class="w-full">
+        <SkillSlider client:visible Row={tecnologies} />
       </div>
     </div>
   </TextSection>
-</Container>
+</section>
 
 <!-- <script>
   document.addEventListener("astro:page-load", () => {
@@ -59,7 +53,7 @@ import TextSection from "@/components/TextSection.astro";
   });
 </script> -->
 
-<style>
+<!-- <style>
   @keyframes fighter-select {
     from {
       opacity: 0.5;
@@ -178,4 +172,4 @@ import TextSection from "@/components/TextSection.astro";
       $fighterSelector.style.visibility = "hidden";
     }
   });
-</script>
+</script> -->

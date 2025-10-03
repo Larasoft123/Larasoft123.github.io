@@ -5,55 +5,70 @@ import Moises from "../assets/img/Moises.jpg";
 import { Image } from "astro:assets";
 ---
 
-<Container id="AboutMe">
-  <TextSection name="Sobre mí" className="text-yellow-400 cover-animation">
-    <article slot="content" class="grid grid-cols-12 items-start gap-y-4 text-white/95 mb-60  mt-20 lg:mt-5">
 
-      <div class="col-span-12 relative justify-center md:justify-start  md:col-span-4 flex">
-        <Image
-      
-          src={Moises}
-          alt="Moisés"
-          width="200"
-          height="200"
-          class="h-50  rounded-xl w-auto mask-fade-image bg-center"
-        />
 
-  
+
+
+<Container id="AboutMe" className="hidden  translate-x-[0%] transition-transform duration-100 starting:-translate-x-full">
+    <TextSection name="Sobre mí" className="text-yellow-400">
+      <div
+        slot="content"
+        class="grid grid-cols-12 items-start gap-y-4 text-white/95  mt-12 lg:mt-5"
+      >
+        <div
+          class="col-span-12 relative justify-center md:justify-start md:col-span-4 flex"
+        >
+          <Image
+            src={Moises}
+            alt="Moisés"
+            width="200"
+            height="200"
+            class="h-50 rounded-xl w-auto mask-fade-image bg-center"
+          />
+        </div>
+
+        <div
+          class="col-span-12 mt-8 md:mt-0 md:col-span-8 flex text-center md:text-start flex-col gap-6 justify-start"
+        >
+          <p class="text-pretty text-lg font-garamond">
+            Hola, soy Moisés, pero mis amigos me llaman "Moi". La primera vez
+            que
+            <strong>programé tenía 14 años</strong>, y desde entonces no he
+            podido dejar de programar. Cuando no estoy programando estoy <strong
+            >
+              pensando en como crear algoritmos e interfaces de usuario</strong
+            > atractivas, eficientes y mantenibles.
+          </p>
+
+          <p class="text-pretty text-lg">
+            Desde el 2024 he estado haciendo proyectos de código abierto y
+            <strong> colaborando con otros desarrolladores</strong>. A lo largo
+            de los años he aprendido <strong>
+              lenguajes de programación y tecnologías web modernas</strong
+            >, tales cómo: React, Next.js, Tailwind CSS, TypeScript, Node.js,
+            Angular, Javascript, Sass, Css, HTML, Bootstrap, Python, etc.
+          </p>
+
+          <p class="text-pretty text-lg">
+            Actualmente estoy estudiando sobre <strong>
+              el mundo de la programación y desarrollo web
+            </strong>. Me gusta trabajar en proyectos desafiantes que me
+            permitan crecer como desarrollador y contribuir a la comunidad de
+            código abierto.
+          </p>
+        </div>
       </div>
+    </TextSection>
+  </Container>
 
-      <div class="col-span-12 md:col-span-8 flex flex-col gap-6 justify-start">
-        <p class="text-pretty text-lg font-garamond">
-          Hola, soy Moisés, pero mis amigos me llaman "Moi". La primera vez que
-          <strong>programé tenía 14 años</strong>, y desde entonces no he podido dejar de
-          programar. Cuando no estoy programando estoy <strong> pensando en como crear
-          algoritmos e interfaces de usuario</strong> atractivas y eficientes y
-          mantenibles.
-        </p>
 
-        <p class="text-pretty text-lg">
-          Desde el 2024 he estado haciendo proyectos de código abierto y
-          <strong> colaborando con otros desarrolladores</strong>. A lo largo de los años he
-          aprendido <strong> lenguajes de programación y tecnologías web modernas</strong>, tales
-          cómo: React, Next.js, Tailwind CSS, TypeScript, Node.js, Angular,
-          Javascript, Sass, Css, HTML, Bootstrap, Python, etc.
-        </p>
 
-        <p class="text-pretty text-lg">
-          Actualmente estoy estudiando sobre  <strong> el mundo de la programación y
-          desarrollo web </strong>. Me gusta trabajar en proyectos desafiantes que me
-          permitan crecer como desarrollador y contribuir a la comunidad de
-          código abierto.
-        </p>
-      </div>
-    </article>
-  </TextSection>
-</Container>
+
+
 
 
 <style>
   strong {
     color: white !important;
   }
-
 </style>

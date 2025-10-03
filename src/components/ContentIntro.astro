@@ -1,0 +1,84 @@
+---
+import Badge from "../components/Badge.astro";
+import Image from "astro/components/Image.astro";
+import Moises from "../assets/img/Moises.jpg";
+import { Presentation } from "@/consts/presentation";
+import SocialLink from "@/components/SocialLink.astro";
+import { Socials } from "@/consts/Socials";
+---
+
+
+
+
+
+
+
+
+<!-- peer-checked:translate-x-[175%] peer-checked:hidden  transition-transform duration-100 -->
+<article
+  id="intro-content"
+    class="flex  flex-col lg:px-0 px-6 justify-center w-full items-center gap-4 relative"
+  >
+    <div class="gap-x-8 flex items-center animate-fade-in-up animate-delay-50">
+      <div class="">
+        <picture>
+          <Image
+            loading={"eager"}
+            src={Moises}
+            alt="Moisés"
+            width="200"
+            height="200"
+            class="rounded-full h-36 w-auto mask-fade-image bg-center"
+          />
+        </picture>
+      </div>
+    </div>
+
+    <span class="animate-zoom-in animate-delay-100">
+      <Badge>{Presentation.title} </Badge>
+    </span>
+
+    <div class="flex items-center mt-4 animate-fade-in-right justify-center">
+      <h1
+        class="text-center text-balance animate-delay-200 font-semibold text-4xl xl:text-5xl"
+      >
+        Hola, soy <span class="text-primary/80"> {Presentation.name}</span> 👋
+      </h1>
+    </div>
+
+    <div
+      class="flex justify-center animate-delay-350 animate-fade-in-up text-white/80 items-center"
+    >
+      <h1 class="text-lg text-center text-pretty">
+        <span class="text-amber-400 font-semibold">
+          Desarrollador especializado en la creación de interfaces web
+          funcionales y optimizadas</span
+        >, con experiencia en <span class="text-amber-400 font-semibold">
+          tecnologías modernas
+        </span>para construir aplicaciones eficientes y accesibles.
+      </h1>
+    </div>
+
+    <footer
+      id="socials-container"
+      class="w-full flex justify-between items-center"
+    >
+      {
+        Socials.map((social) => (
+          <SocialLink
+            href={social.href}
+            name={social.name}
+            ClassName="w-10 h-auto"
+          >
+            <div class="social" slot={"icon-left"}>
+              <social.Icon
+                className={
+                  "w-10 h-auto text-white opacity-85 animate-fade-in-up animate-delay-500  hover:opacity-100 "
+                }
+              />
+            </div>
+          </SocialLink>
+        ))
+      }
+    </footer>
+  </article>

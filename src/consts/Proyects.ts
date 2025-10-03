@@ -1,21 +1,21 @@
 import { type Proyect } from "@/types/proyectType";
-import angular from "@/assets/Logos/angular.astro";
-import react from "@/assets/Logos/react_wordmark_dark.astro";
-import vue from "@/assets/Logos/vue.astro";
-import node from "@/assets/Logos/nodejs.astro";
-import javascript from "@/assets/Logos/javascript.astro";
-import tailwindcss from "@/assets/Logos/tailwindcss-wordmark-dark.astro";
-import typescript from "@/assets/Logos/typescript.astro";
-import sass from "@/assets/Logos/sass.astro";
-import bootstrap from "@/assets/Logos/bootstrap.astro";
-import astro from "@/assets/Logos/astro-icon-light-gradient.astro";
-import rxjs from "@/assets/Logos/rxjs.astro";
-import html5 from "@/assets/Logos/html5.astro";
-import Git from "@/assets/Logos/Git.astro";
-import Vitejs from "@/assets/Logos/vitejs.astro";
-import Python from "@/assets/Logos/python.astro";
-import Css from "@/assets/Logos/Css.astro";
-import NextJs from "@/assets/Logos/NextJs.astro";
+import angular from "@/assets/Logos/angular.svg";
+import react from "@/assets/Logos/react_wordmark_dark.svg";
+import vue from "@/assets/Logos/vue.svg";
+import node from "@/assets/Logos/nodejs.svg";
+import javascript from "@/assets/Logos/javascript.svg";
+import tailwindcss from "@/assets/Logos/tailwindcss-wordmark-dark.svg";
+import typescript from "@/assets/Logos/typescript.svg";
+import sass from "@/assets/Logos/sass.svg";
+import bootstrap from "@/assets/Logos/bootstrap.svg";
+// import astro from "@/assets/Logos/svg-icon-light-gradient.svg";
+import rxjs from "@/assets/Logos/rxjs.svg";
+import html5 from "@/assets/Logos/html5.svg";
+import Git from "@/assets/Logos/Git.svg";
+import Vitejs from "@/assets/Logos/vitejs.svg";
+import Python from "@/assets/Logos/python.svg";
+import Css from "@/assets/Logos/Css.svg";
+import NextJs from "@/assets/Logos/NextJs.svg";
 
 
 
@@ -63,12 +63,12 @@ const tags = {
       logo: tailwindcss,
     },
   },
-  astro: {
-    name: "astro",
-    icon: {
-      logo: astro,
-    },
-  },
+  // astro: {
+  //   name: "astro",
+  //   icon: {
+  //     logo: astro,
+  //   },
+  // },
   vite: {
     name: "vite",
     icon: {
@@ -118,7 +118,7 @@ export const ProyectsList: Proyect[] = [
     name: "Juego de Memoria",
     description:
       "Juego de memoria hecho con JavaScript vanila, !Porque me gusta sufrir!",
-    image: "../../public/images/proyects/Juego-memoria.webp",
+    image: "../../images/proyects/Juego-memoria.webp",
     link: "https://larasoft123.github.io/juego-memoria/",
     tags: [tags.js, tags.css, tags.html],
     github: "https://github.com/Larasoft123/juego-memoria",
@@ -127,7 +127,7 @@ export const ProyectsList: Proyect[] = [
   {
     name: "App de listas",
     description: "App de listas hecho con Angular, Tailwind, typescript y la api de Gemini .",
-    image: "../../public/images/proyects/gemini-app.webp",
+    image: "../../images/proyects/gemini-app.webp",
     link: "https://larasoft123.github.io/app-listas-gemini/",
     tags: [
       tags.ts,
@@ -144,7 +144,7 @@ export const ProyectsList: Proyect[] = [
   {
     name: "App de países",
     description: "App de países hecho con React Js, Tailwind, typescript y la api REST Countries",
-    image: "../../public/images/proyects/Countries-app.webp",
+    image: "../../images/proyects/Countries-app.webp",
     link: "https://countries-app-pi-black.vercel.app/",
     tags: [
       tags.ts,
@@ -162,13 +162,13 @@ export const ProyectsList: Proyect[] = [
   {
     name: "La velada del año V",
     description: "Participación en el proyecto de 'La Velada del Año V' liderado por la comunidad de Midudev,  el evento más esperado organizado por Ibai Llanos.",
-    image: "../../public/images/proyects/Velada.webp",
+    image: "../../images/proyects/Velada.webp",
     link: "https://la-velada-web-oficial-h4wiyiv2f-midudev-pro.vercel.app/",
     tags: [
       tags.ts,
       tags.css,
       tags.html,
-      tags.astro,
+      // tags.astro,
       tags.js,
       tags.tailwind,
 

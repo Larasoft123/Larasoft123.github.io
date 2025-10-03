@@ -1,75 +1,61 @@
 ---
 import Container from "../components/container.astro";
-import Badge from "../components/Badge.astro";
-import Image from "astro/components/Image.astro";
-import Moises from "../assets/img/Moises.jpg";
-import { Presentation } from "@/consts/presentation";
-import SocialLink from "@/components/SocialLink.astro";
-import { Socials } from "@/consts/Socials";
+
+import AboutMe from "@/sections/aboutMe.astro";
+import Badge from "@/components/Badge.astro";
+import ContentIntro from "@/components/ContentIntro.astro";
 ---
 
-<Container className="mt-36 " id="Intro">
-  <article
-    class="flex flex-col  lg:px-0 px-6 justify-center w-full items-center gap-4 relative"
-  >
-    <div class="gap-x-8 flex items-center animate-fade-in-up animate-delay-50">
-      <div class="">
-        <picture>
-          <Image
-          loading={"eager"}
-            src={Moises}
-            alt="Moisés"
-            width="200"
-            height="200"
-            class="rounded-full h-36 w-auto mask-fade-image bg-center"
-          />
-        </picture>
-      </div>
-    </div>
+<Container
+  className="mt-40 flex flex-col items-center justify-center "
+  id="Intro"
+>
+  <ContentIntro />
+  <AboutMe />
 
-    <span class="animate-zoom-in animate-delay-100">
-      <Badge>{Presentation.title} </Badge>
-    </span>
-
-    <div class="flex items-center mt-4 animate-fade-in-right justify-center">
-      <h1
-        class="text-center text-balance animate-delay-200 font-semibold text-4xl xl:text-5xl"
-      >
-        Hola, soy <span class="text-primary/80"> {Presentation.name}</span> 👋
-      </h1>
-    </div>
-
-    <div
-      class="flex justify-center animate-delay-350 animate-fade-in-up text-white/80 items-center"
+  <Badge isDark={true} Class="mt-12 mb-8"
     >
-      <h1 class="text-lg text-center text-pretty">
-       <span class="text-amber-400 font-semibold">
-          Desarrollador especializado en la creación de interfaces web
-          funcionales y optimizadas</span>, con experiencia en <span class="text-amber-400 font-semibold">
-          tecnologías modernas
-        </span>para construir aplicaciones eficientes y accesibles.
-    
-      </h1>
-    </div>
-
-    <footer id="socials-container" class="w-full flex justify-between items-center">
-      {
-        Socials.map((social) => (
-          <SocialLink href={social.href} name={social.name} ClassName="w-10 h-auto">
-            <div class="social" slot={"icon-left"}>
-              <social.Icon
-              
-                className={
-                  "w-10 h-auto text-white opacity-85 animate-fade-in-up animate-delay-500  hover:opacity-100 "
-                }
-              />
-            </div>
-          </SocialLink>
-        ))
-      }
-    </footer>
-  </article>
+    <button>
+      <label
+        for="controler-checkbox"
+        class="inline-flex text-center justify-center flex-col items-center cursor-pointer"
+      >
+        <span id="text-content">Ver mas</span>
+      </label>
+    </button>
+  </Badge>
+  <input type="checkbox" id="controler-checkbox" class="peer hidden" />
 </Container>
 
-<style></style>
+<script>
+  document.addEventListener("astro:page-load", () => {
+    // elementos del DOM
+    const CrtlCheckbox = document.getElementById(
+      "controler-checkbox"
+    ) as HTMLInputElement;
+    const AboutSection = document.getElementById("AboutMe") as HTMLElement;
+    const introContent = document.getElementById(
+      "intro-content"
+    ) as HTMLElement;
+    const textContent = document.getElementById(
+      "text-content"
+    ) as HTMLButtonElement;
 
+    CrtlCheckbox?.addEventListener("change", (event) => {
+      const target = event.target as HTMLInputElement;
+      if (target.checked) {
+        AboutSection?.classList.remove("hidden");
+        introContent?.classList.add("hidden");
+        AboutSection?.classList.add("block");
+        textContent.innerHTML = "Ver menos";
+        return;
+      }
+
+      AboutSection?.classList.remove("block");
+      introContent?.classList.remove("hidden");
+      introContent?.classList.add("block");
+      AboutSection?.classList.add("hidden");
+      textContent.innerHTML = "Ver más";
+    });
+  });
+</script>

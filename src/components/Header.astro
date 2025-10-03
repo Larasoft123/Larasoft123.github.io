@@ -1,44 +1,32 @@
 ---
-
 import MenuBtn from "@/assets/icons/MenuBtn.astro";
-
+import WhatsAppBtn from "./WhatsAppBtn.astro";
 
 const URL = Astro.url.pathname;
 const isHome = URL === "/";
 
-
-
 const LinkstoSections = [
   {
     name: "Home",
-    href: `${isHome ? ' #Intro' : '/'}`,
+    href: `${isHome ? " #Intro" : "/"}`,
     label: "Intro",
   },
   {
     name: "Projects",
-    href: `${isHome ? ' #projects' : '/#projects'}`,
+    href: `${isHome ? " #projects" : "/#projects"}`,
     label: "projects",
   },
   {
-    name : "Skills",
-    href : `${isHome ? '#skills' : '/#skills'}`,
+    name: "Skills",
+    href: `${isHome ? "#skills" : "/#skills"}`,
     label: "skills",
   },
-  {
-    name: "About",
-    href: `${isHome ? '#AboutMe' : ' /#AboutMe'}`,
-    label: "AboutMe",
-  },
+
 ];
-
-
-
-
-
 ---
 
 <header
-  class="items-center animate-blur-shadow-black z-100 bg-transparent flex fixed top-0 w-full justify-center py-4 px-8 text-white/80 border-gray-700"
+  class="items-center overflow-x-hidden animate-blur-shadow-black z-100 bg-transparent flex fixed top-0 w-full justify-center py-4 px-8 text-white/80 border-gray-700"
 >
   <div class="flex max-w-4xl w-full mx-auto px-4 justify-center items-center">
     <nav class="flex w-full items-center md:justify-center">
@@ -61,6 +49,13 @@ const LinkstoSections = [
             </li>
           ))
         }
+
+        <li
+          class="cursor-pointer rounded-full w-7 h-7 md:hidden hover:scale-110  transition inline-block"
+        >
+          <WhatsAppBtn />
+        </li>
+
       </ul>
     </nav>
 
@@ -119,8 +114,65 @@ const LinkstoSections = [
       </div>
     </dialog>
   </div>
+
+
+
+
+  <!--barra de progreso  -->
+  <div id="progress-bar" class="absolute bottom-0 bg-cyan-500 h-[2px]"></div>
 </header>
 
+<style>
+
+  #progress-bar{
+    animation: progress linear both;
+    animation-timeline: scroll();
+    animation-range: entry 0% cover 100%;
+  }
+
+  @keyframes progress {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+</style>
+
+
+
+<!-- menu -->
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const menuBtn = document.getElementById("menuBtn");
+
+    const mobileMenu = document.getElementById(
+      "mobile-menu"
+    ) as HTMLDialogElement;
+    const closeMenuBtn = document.getElementById("close-menu-button");
+
+    closeMenuBtn?.addEventListener("click", () => {
+      toggleMenu();
+    });
+
+    mobileMenu.addEventListener("click", ()=> {
+      toggleMenu()
+    })
+
+    function toggleMenu() {
+      mobileMenu.open ? mobileMenu.close() : mobileMenu.showModal();
+    }
+
+    menuBtn?.addEventListener("click", () => {
+      toggleMenu();
+    });
+  });
+</script>
+
+
+<!-- intersection observer -->
 <script>
   document.addEventListener("astro:page-load", () => {
     const sections = document.querySelectorAll("section");
@@ -163,29 +215,5 @@ const LinkstoSections = [
         });
       }
     };
-  });
-</script>
-
-<!-- menu -->
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const menuBtn = document.getElementById("menuBtn");
-
-    const mobileMenu = document.getElementById(
-      "mobile-menu"
-    ) as HTMLDialogElement;
-    const closeMenuBtn = document.getElementById("close-menu-button");
-
-    closeMenuBtn?.addEventListener("click", () => {
-      mobileMenu.close();
-    });
-
-    function toggleMenu() {
-      mobileMenu.open ? mobileMenu.close() : mobileMenu.showModal();
-    }
-
-    menuBtn?.addEventListener("click", () => {
-      toggleMenu();
-    });
   });
 </script>

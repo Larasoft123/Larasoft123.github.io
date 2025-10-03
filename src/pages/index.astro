@@ -1,19 +1,39 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
 import Skills from "@/sections/Skills.astro";
-import Intro from "../sections/Intro.astro";
+import Intro from "@/sections/Intro.astro";
 import Proyects from "@/sections/Proyects.astro";
-import AboutMe from "@/sections/aboutMe.astro";
+// import AboutMe from "@/sections/aboutMe.astro";
 import Smoke from "@/components/Smoke.astro";
+import { Presentation } from "@/consts/presentation";
+// import Contact from "@/sections/Contact.astro";
+import WhatsAppBtn from "@/components/WhatsAppBtn.astro";
 ---
 
-<Layout>
-  <Smoke/>
-  <main>
-    <Intro />
-    <Proyects />
-    <Skills />
-    <AboutMe />
-  </main>
+<Layout
+  title={`Portafolio web de ${Presentation.name} - ${Presentation.description}`}
+  description={`Portafolio web de ${Presentation.name} - ${Presentation.description}`}
+>
+  <Smoke />
+
+  <Intro />
+  <Proyects />
+  <Skills />
+  <!-- <AboutMe /> -->
+
+  <button
+  aria-describedby={`boton de ir a  escribir al whassapt de ${Presentation.name}`}
+
+  aria-label="abrir whassapt"
+    class="fixed hidden md:block right-20 bottom-36 animate-fade-in p-2 lg:bottom-28 w-16 h-16 lg:right-22"
+  >
+    <WhatsAppBtn />
+  </button>
 </Layout>
 
+<style>
+  button {
+    animation-timeline: scroll();
+    animation-range: entry 0px cover 600px;
+  }
+</style>
