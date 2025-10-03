@@ -1,7 +1,31 @@
 ---
-const {text} = Astro.props;
+const variants = {
+  primary:
+    "px-4 py-2 text-sm font-semibold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors",
+  secondary:
+    "px-4 py-2 text-sm font-semibold text-white bg-gray-600/70 rounded-lg hover:bg-gray-600/90 transition-colors",
+  badge:
+    "px-4 py-2 text-sm font-medium text-gray-300 bg-gray-700/50 hover:bg-primary/80 rounded-full transition-colors",
+};
 
+interface Props {
+  text: string;
+  isLink?: boolean;
+  variant?: keyof typeof variants;
+  class?: string;
+  href?: string;
+}
+
+const {
+  text,
+  variant = "primary",
+  class: ClassName = "",
+  isLink = false,
+  href = "",
+} = Astro.props;
 ---
 
-
-<button class="inline-flex items-center justify-center w-full px-3 py-1 text-sm text-green-800 bg-green-100 rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap">{text}</button>
+<button class={`${variants[variant]} ${ClassName}`}>
+  {isLink && <a href={href}>{text}</a>}
+  {!isLink && text}
+</button>
