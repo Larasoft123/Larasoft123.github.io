@@ -1,0 +1,23 @@
+---
+import TimelineItem from "./TimelineItem.astro";
+import type { ITimelineItem } from "@/types/timelineType";
+
+interface Props {
+  timelineData: ITimelineItem[];
+}
+
+const { timelineData } = Astro.props;
+---
+
+<ol class="relative border-s ms-2.5 border-gray-700">
+  {
+    timelineData.map((item) => (
+      <TimelineItem
+        title={item.title}
+        description={item.description}
+        timeData={item.timeData}
+        latest={item.latest}
+      />
+    ))
+  }
+</ol>
