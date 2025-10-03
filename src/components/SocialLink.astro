@@ -1,30 +1,15 @@
 ---
-
 interface Props {
   href: string;
   name: string;
   ClassName?: string;
 }
 
-const { href, ClassName,name  } = Astro.props;
-
-
-const msg = name === "Gmail" ? "Enviar un email a Moises al correo moisesdavidlara1@gmail.com" : name === "Phone" ? "Llamar por telefono a Moises al numero +424 538 6974" : `Abrir enlace a red social ${name}`;
+const { href, ClassName, name } = Astro.props;
 ---
 
-<a
-  href={href}
-  target="_blank"
-  aria-label={msg}
-  title={name}
-  rel="noopener noreferrer"
-  aria-describedby="tooltip-social"
-  class={`flex items-center cursor-pointer transition-transform hover:scale-105 py-2 px-4 justify-center duration-300 gap-2 ${ClassName} `}
+<button
+  class={`flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors ${ClassName}`}
 >
-<span  class={`${ClassName} `}>
-  
-    <slot name="icon-left"/>
-    <slot name="title"/>
-    <slot name="icon-right"/>
-</span>
-</a>
+  <slot />
+</button>
