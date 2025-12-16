@@ -1,0 +1,153 @@
+{
+  "nav": {
+    "hero": "Inicio",
+    "about": "Sobre Mí",
+    "projects": "Proyectos",
+    "certifications": "Certificaciones",
+    "skills": "Skills",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "badge": "Disponible para nuevos retos",
+    "titlePrefix": "Creando Experiencias",
+    "titleGradient": "Digitales Profundas",
+    "description": "Soy Alex, un Ingeniero de Software Full Stack. Fusiono la lógica técnica con un diseño fluido como el agua para construir aplicaciones web escalables, intuitivas y memorables.",
+    "cta": "Ver Portafolio",
+    "scroll": "Descubre más"
+  },
+  "about": {
+    "title": "Más que código,",
+    "titleGradient": "Creo Soluciones",
+    "description": "Mi viaje comenzó hace más de 6 años con una simple curiosidad por cómo funcionaban las cosas en la web. Hoy, esa curiosidad se ha transformado en una carrera apasionante construyendo arquitecturas complejas y experiencias de usuario fluidas.",
+    "imageTitle": "Alex Dev",
+    "imageSubtitle": "Ingeniero Full Stack",
+    "cards": [
+      {
+        "title": "Desarrollo Limpio",
+        "desc": "Código mantenible, escalable y siguiendo las mejores prácticas (SOLID, Clean Arch)."
+      },
+      {
+        "title": "Visión Global",
+        "desc": "Experiencia trabajando con equipos remotos internacionales y metodologías ágiles."
+      },
+      {
+        "title": "Aprendizaje Continuo",
+        "desc": "Siempre explorando nuevas tecnologías, desde WebAssembly hasta IA Generativa."
+      }
+    ],
+    "timeline": [
+      { "year": "2018", "label": "Inicio Freelance" },
+      { "year": "2020", "label": "Senior Frontend" },
+      { "year": "2022", "label": "Tech Lead" },
+      { "year": "2024", "label": "Integración IA" }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos",
+    "titleHighlight": "Destacados",
+    "subtitle": "Una selección de mis trabajos más recientes, donde la innovación se encuentra con la funcionalidad.",
+    "items": [
+      {
+        "id": 1,
+        "title": "E-Commerce AI Dashboard",
+        "description": "Plataforma de análisis para e-commerce que utiliza ML para predecir tendencias de ventas. Dashboard interactivo en tiempo real.",
+        "tags": ["React", "Python", "TensorFlow", "D3.js"],
+        "image": "https://picsum.photos/seed/project1/800/600",
+        "link": "#",
+        "github": "#"
+      },
+      {
+        "id": 2,
+        "title": "NeoBank Mobile App",
+        "description": "Aplicación web progresiva (PWA) para gestión financiera personal con animaciones fluidas y modo offline.",
+        "tags": ["React Native", "Firebase", "TypeScript"],
+        "image": "https://picsum.photos/seed/project2/800/600",
+        "link": "#",
+        "github": "#"
+      },
+      {
+        "id": 3,
+        "title": "Crypto Portfolio Tracker",
+        "description": "Rastreador de portafolio de criptomonedas con actualizaciones de precios en tiempo real vía WebSockets.",
+        "tags": ["Next.js", "WebSocket", "Tailwind"],
+        "image": "https://picsum.photos/seed/project3/800/600",
+        "link": "#",
+        "github": "#"
+      }
+    ]
+  },
+  "certifications": {
+    "title": "Certificaciones & Logros",
+    "subtitle": "Validación técnica de mis habilidades a través de estándares de la industria.",
+    "issuedBy": "Emitido por",
+    "viewCredential": "Ver Credencial",
+    "items": [
+      {
+        "id": 1,
+        "name": "AWS Certified Solutions Architect",
+        "issuer": "Amazon Web Services",
+        "date": "2023",
+        "badgeUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png",
+        "link": "#"
+      },
+      {
+        "id": 2,
+        "name": "Google Cloud Professional Developer",
+        "issuer": "Google Cloud",
+        "date": "2022",
+        "badgeUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Google_Cloud_logo.svg/2560px-Google_Cloud_logo.svg.png",
+        "link": "#"
+      },
+      {
+        "id": 3,
+        "name": "Meta Frontend Professional",
+        "issuer": "Meta / Coursera",
+        "date": "2021",
+        "badgeUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
+        "link": "#"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Arsenal Técnico",
+    "subtitle": "Una visualización de mis competencias principales y áreas de especialización.",
+    "radarData": [
+      { "subject": "Frontend", "A": 95, "fullMark": 100 },
+      { "subject": "Backend", "A": 85, "fullMark": 100 },
+      { "subject": "Cloud", "A": 75, "fullMark": 100 },
+      { "subject": "Design", "A": 80, "fullMark": 100 },
+      { "subject": "DevOps", "A": 70, "fullMark": 100 },
+      { "subject": "AI", "A": 90, "fullMark": 100 }
+    ],
+    "sideTitle": "Más allá del código",
+    "sideDesc": "No solo escribo código; diseño soluciones. Mi enfoque combina una sólida ingeniería con una sensibilidad estética refinada.",
+    "list": [
+      { "title": "Frontend", "desc": "React, TypeScript, Next.js, Tailwind" },
+      { "title": "Backend", "desc": "Node.js, Express, Python, PostgreSQL" },
+      { "title": "Herramientas", "desc": "Git, Docker, Webpack, Vite" },
+      { "title": "Soft Skills", "desc": "Liderazgo, Comunicación, Agile" }
+    ]
+  },
+  "aiChat": {
+    "badge": "IA",
+    "title": "Asistente Virtual",
+    "subtitle": "Potenciado por Gemini.",
+    "initialMessage": "¡Hola! Soy el asistente de Alex. ¿En qué puedo ayudarte?",
+    "placeholder": "Pregúntame algo...",
+    "loading": "Pensando...",
+    "disclaimer": "Powered by Gemini AI",
+    "systemInstruction": "\n          Eres el asistente virtual personal de Alex.\n          Tu trabajo es responder preguntas sobre su experiencia profesional, habilidades y proyectos.\n          Alex es un Ingeniero de Software Senior Full Stack con 6+ años de experiencia.\n          Stack: TypeScript, React, Tailwind, GCP, Python.\n          Personalidad: Curioso, innovador.\n          Responde siempre en ESPAÑOL. Sé breve y conciso (máximo 2-3 frases).\n        "
+  },
+  "contact": {
+    "title": "Empecemos a crear",
+    "desc": "Estoy siempre abierto a discutir nuevos proyectos, ideas creativas u oportunidades.",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "btn": "Enviar Mensaje"
+    },
+    "footer": "© 2024 Alex Dev. Diseñado con React, Tailwind & Gemini."
+  }
+}

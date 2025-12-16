@@ -1,0 +1,153 @@
+{
+  "nav": {
+    "hero": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "certifications": "Certifications",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Open to new opportunities",
+    "titlePrefix": "Crafting Deep",
+    "titleGradient": "Digital Experiences",
+    "description": "I'm Alex, a Full Stack Software Engineer. I merge technical logic with water-like fluid design to build scalable, intuitive, and memorable web applications.",
+    "cta": "View Work",
+    "scroll": "Discover"
+  },
+  "about": {
+    "title": "Beyond Code,",
+    "titleGradient": "I Create Solutions",
+    "description": "My journey began over 6 years ago with a simple curiosity about how things worked on the web. Today, that curiosity has evolved into a passionate career building complex architectures and fluid user experiences.",
+    "imageTitle": "Alex Dev",
+    "imageSubtitle": "Full Stack Engineer",
+    "cards": [
+      {
+        "title": "Clean Development",
+        "desc": "Maintainable, scalable code following best practices (SOLID, Clean Arch)."
+      },
+      {
+        "title": "Global Vision",
+        "desc": "Experience working with international remote teams and agile methodologies."
+      },
+      {
+        "title": "Continuous Learning",
+        "desc": "Always exploring new technologies, from WebAssembly to Generative AI."
+      }
+    ],
+    "timeline": [
+      { "year": "2018", "label": "Freelance Start" },
+      { "year": "2020", "label": "Senior Frontend" },
+      { "year": "2022", "label": "Tech Lead" },
+      { "year": "2024", "label": "AI Integration" }
+    ]
+  },
+  "projects": {
+    "title": "Featured",
+    "titleHighlight": "Projects",
+    "subtitle": "A selection of my most recent work, where innovation meets functionality.",
+    "items": [
+      {
+        "id": 1,
+        "title": "E-Commerce AI Dashboard",
+        "description": "E-commerce analytics platform using ML to predict sales trends. Real-time interactive dashboard.",
+        "tags": ["React", "Python", "TensorFlow", "D3.js"],
+        "image": "https://picsum.photos/seed/project1/800/600",
+        "link": "#",
+        "github": "#"
+      },
+      {
+        "id": 2,
+        "title": "NeoBank Mobile App",
+        "description": "Progressive Web App (PWA) for personal finance management with fluid animations and offline mode.",
+        "tags": ["React Native", "Firebase", "TypeScript"],
+        "image": "https://picsum.photos/seed/project2/800/600",
+        "link": "#",
+        "github": "#"
+      },
+      {
+        "id": 3,
+        "title": "Crypto Portfolio Tracker",
+        "description": "Cryptocurrency portfolio tracker with real-time price updates via WebSockets.",
+        "tags": ["Next.js", "WebSocket", "Tailwind"],
+        "image": "https://picsum.photos/seed/project3/800/600",
+        "link": "#",
+        "github": "#"
+      }
+    ]
+  },
+  "certifications": {
+    "title": "Certifications & Achievements",
+    "subtitle": "Technical validation of my skills through industry standards.",
+    "issuedBy": "Issued by",
+    "viewCredential": "View Credential",
+    "items": [
+      {
+        "id": 1,
+        "name": "AWS Certified Solutions Architect",
+        "issuer": "Amazon Web Services",
+        "date": "2023",
+        "badgeUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png",
+        "link": "#"
+      },
+      {
+        "id": 2,
+        "name": "Google Cloud Professional Developer",
+        "issuer": "Google Cloud",
+        "date": "2022",
+        "badgeUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Google_Cloud_logo.svg/2560px-Google_Cloud_logo.svg.png",
+        "link": "#"
+      },
+      {
+        "id": 3,
+        "name": "Meta Frontend Professional",
+        "issuer": "Meta / Coursera",
+        "date": "2021",
+        "badgeUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
+        "link": "#"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Technical Arsenal",
+    "subtitle": "A visualization of my core competencies and areas of expertise.",
+    "radarData": [
+      { "subject": "Frontend", "A": 95, "fullMark": 100 },
+      { "subject": "Backend", "A": 85, "fullMark": 100 },
+      { "subject": "Cloud", "A": 75, "fullMark": 100 },
+      { "subject": "Design", "A": 80, "fullMark": 100 },
+      { "subject": "DevOps", "A": 70, "fullMark": 100 },
+      { "subject": "AI", "A": 90, "fullMark": 100 }
+    ],
+    "sideTitle": "Beyond Code",
+    "sideDesc": "I don't just write code; I design solutions. My approach combines solid engineering with refined aesthetic sensibility.",
+    "list": [
+      { "title": "Frontend", "desc": "React, TypeScript, Next.js, Tailwind" },
+      { "title": "Backend", "desc": "Node.js, Express, Python, PostgreSQL" },
+      { "title": "Tools", "desc": "Git, Docker, Webpack, Vite" },
+      { "title": "Soft Skills", "desc": "Leadership, Communication, Agile" }
+    ]
+  },
+  "aiChat": {
+    "badge": "AI",
+    "title": "Virtual Assistant",
+    "subtitle": "Powered by Gemini.",
+    "initialMessage": "Hi! I'm Alex's assistant. How can I help you?",
+    "placeholder": "Ask me anything...",
+    "loading": "Thinking...",
+    "disclaimer": "Powered by Gemini AI",
+    "systemInstruction": "\n          You are the personal virtual assistant of Alex.\n          Your job is to answer questions about their professional experience, skills, and projects.\n          Alex is a Senior Full Stack Software Engineer with 6+ years of experience.\n          Stack: TypeScript, React, Tailwind, GCP, Python.\n          Personality: Curious, innovative.\n          Always answer in ENGLISH. Be brief and concise (max 2-3 sentences).\n        "
+  },
+  "contact": {
+    "title": "Let's create something",
+    "desc": "I am always open to discussing new projects, creative ideas, or opportunities.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "btn": "Send Message"
+    },
+    "footer": "© 2024 Alex Dev. Designed with React, Tailwind & Gemini."
+  }
+}
