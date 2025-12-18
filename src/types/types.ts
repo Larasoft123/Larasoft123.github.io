@@ -4,10 +4,15 @@ export interface Project {
     id: number;
     title: string;
     description: string;
-    tags: string[];
+    tags: Tag[];
     image: string;
     link?: string;
     github?: string;
+}
+
+
+export interface Tag {
+    name: string
 }
 
 export interface SkillData {
