@@ -1,0 +1,79 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["spotlight-wrapper relative group", className]}>
+  {/* Capa Base */}
+  <div class="spotlight-base relative z-0 h-full">
+    <slot />
+  </div>
+
+  {/* Capa Overlay (Efecto Spotlight) */}
+  <div
+    class="spotlight-overlay absolute inset-0 pointer-events-none select-none transition-opacity duration-500 opacity-0 z-10"
+    aria-hidden="true"
+  >
+    <slot name="overlay" />
+  </div>
+</div>
+
+<style>
+  .spotlight-overlay {
+    --x: 0px;
+    --y: 0px;
+    --opacity: 0;
+    opacity: var(--opacity);
+    /* Overlay Masking Technique */
+    mask-image: radial-gradient(
+      400px circle at var(--x) var(--y),
+      black,
+      transparent
+    );
+    -webkit-mask-image: radial-gradient(
+      400px circle at var(--x) var(--y),
+      black,
+      transparent
+    );
+  }
+</style>
+
+<script>
+  // Manejamos múltiples instancias del spotlight en la misma página
+  function initSpotlight() {
+    const wrappers = document.querySelectorAll(".spotlight-wrapper");
+
+    wrappers.forEach((wrapper) => {
+      const overlay = wrapper.querySelector(
+        ".spotlight-overlay"
+      ) as HTMLElement;
+
+      if (overlay) {
+        const handleMouseMove = (e: Event) => {
+          const mouseEvent = e as MouseEvent;
+          const rect = wrapper.getBoundingClientRect();
+          const x = mouseEvent.clientX - rect.left;
+          const y = mouseEvent.clientY - rect.top;
+
+          overlay.style.setProperty("--x", `${x}px`);
+          overlay.style.setProperty("--y", `${y}px`);
+          overlay.style.setProperty("--opacity", "1");
+        };
+
+        const handleMouseLeave = () => {
+          overlay.style.setProperty("--opacity", "0");
+        };
+
+        wrapper.addEventListener("mousemove", handleMouseMove);
+        wrapper.addEventListener("mouseleave", handleMouseLeave);
+      }
+    });
+  }
+
+  // Inicializar en carga y en transiciones de vista (si se usan)
+  initSpotlight();
+  document.addEventListener("astro:page-load", initSpotlight);
+</script>
