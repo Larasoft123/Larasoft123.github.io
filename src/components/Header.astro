@@ -1,126 +1,148 @@
 ---
-import MenuBtn from "@/assets/icons/MenuBtn.astro";
-import SocialLink from "./SocialLink.astro";
-import Git from "@/assets/Logos/Git.svg";
-const URL = Astro.url.pathname;
-const isHome = URL === "/";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "@/i18n/utils";
+import LanguagePicker from "@/components/i18N/languagePicker.astro";
+import { type Language } from "@/types/types";
+import { Code, Menu, Globe } from "@lucide/astro";
 
-const LinkstoSections = [
-  {
-    name: "Home",
-    href: `${isHome ? " #Intro" : "/"}`,
-    label: "Intro",
-  },
-  {
-    name: "Projects",
-    href: `${isHome ? " #projects" : "/#projects"}`,
-    label: "projects",
-  },
-  {
-    name: "Skills",
-    href: `${isHome ? "#skills" : "/#skills"}`,
-    label: "skills",
-  },
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang as Language);
+
+const navItems = [
+  { key: "nav.home", href: "#nav.home" },
+  { key: "nav.about", href: "#nav.about" },
+  { key: "nav.projects", href: "#nav.projects" },
+  { key: "nav.skills", href: "#nav.skills" },
+  { key: "nav.certifications", href: "#nav.certifications" },
+  { key: "nav.contact", href: "#nav.contact" },
 ];
+
+const LinkstoSections = navItems.map((item) => ({
+  // @ts-ignore
+  name: t(item.key),
+  href: item.href.startsWith("#") ? item.href : translatePath(item.href),
+  label: item.key,
+}));
+
+const homeLink = lang === "es" ? "/" : `/${lang}/`;
+
+const getHref = (href: string) => {
+  if (href.startsWith("#")) return `${homeLink}${href}`;
+  return href;
+};
 ---
 
 <header
-  class="flex items-center min-h-20 justify-between whitespace-nowrap border-b border-white/10 dark:border-white/10 px-10 py-4"
-  style="animation-delay: 1.2s;"
+  class="nav-animate flex justify-between md:grid md:grid-cols-[1fr_auto_1fr] items-center px-6 md:px-8 border border-transparent transition-colors z-50"
 >
-  <div class="flex items-center gap-3">
-    <div class="size-6 text-primary">
-      <svg
-        fill="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+  {/* Logo (Left) */}
+  <div class="flex justify-start">
+    <div class="flex items-center gap-2 group cursor-pointer">
+      <div
+        class="p-2 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl border border-white/10 group-hover:border-primary/50 transition-colors"
       >
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5z"></path>
-      </svg>
+        <Code class="text-primary w-5 h-5" />
+      </div>
+      <span
+        class="hidden sm:block text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70"
+      >
+        Larasoft
+      </span>
     </div>
-    <h2 class="text-xl font-bold text-white">DevPortfolio</h2>
   </div>
-  <nav class="hidden md:flex items-center gap-8 font-medium">
-    <ul class="md:flex items-center gap-8 font-medium">
-      {
-        LinkstoSections.map(({ name, href, label }) => (
-          <li class="nav-link text-md  text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
-            <a href={href} aria-label={`${label}`}>
-              {name}
-            </a>
-          </li>
-        ))
-      }
-      <!-- <a
-        class="nav-link text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-        href="#">About Me</a
-      >
-      <a
-        class="nav-link text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-        href="#">Projects</a
-      >
-      <a
-        class="nav-link text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-        href="#">Skills</a
-      >
-      <a
-        class="nav-link text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-        href="#">Certifications</a
-      >
-      <a
-        class="nav-link text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-        href="#">Contact</a -->
-    </ul>
+
+  {/* Desktop Nav (Center) */}
+  <nav class="hidden md:flex justify-center items-center gap-1">
+    {
+      LinkstoSections.map((item, idx) => (
+        <a
+          href={getHref(item.href)}
+          aria-label={item.label}
+          class="px-5 py-2 text-sm font-medium text-text-muted hover:text-white transition-colors relative group"
+        >
+          {item.name}
+
+          <span class="absolute inset-0 bg-white/5 rounded-full scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />
+        </a>
+      ))
+    }
   </nav>
-  <div class="flex items-center gap-4">
-    <div
-      class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-      style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDF3eLc7SG41Qar0srRlfxrh3x4RQ9wzXt_95MKcFGQYK1UiCeWWd-RuacevNfK6USgJQOJkV-qHsT8XVcoDY6TSPb4E7N478BIbBihtGVqeEaL0zifBIrwfsTft60z6wltdBbL-gFx5oWKq35T0x7gth0fuuAAR5v1cgY8pDckhqNPJyPwEpEipFCN004rfr-VNCLFcCzSdvsEkBvWVpSXSu5KDD27aW2mDMMfzieOIdlT4WjAtLH-FXmuN5VbwReT3xG5o1v5P_8c");'
+
+  {/* Actions (Right) */}
+  <div class="flex justify-end items-center gap-3">
+    <LanguagePicker />
+
+    <button
+      class="md:hidden text-text-main p-2 hover:bg-white/5 rounded-full transition-colors"
     >
-    </div>
-
-    <MenuBtn class="md:hidden text-white" />
-
-    <SocialLink href="" name="github">
-      <Git class={"w-6"} />
-    </SocialLink>
+      <Menu class="w-5 h-5" />
+    </button>
   </div>
 </header>
 
-<!-- intersection observer -->
 <script>
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section");
+    // Select specific sections by ID to ensure we watch exactly what matters
+    const sectionIds = [
+      "nav.home",
+      "nav.about",
+      "nav.projects",
+      "nav.skills",
+      "nav.certifications",
+      "nav.contact",
+    ];
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section) => section !== null);
+
     const linksHeader = document.querySelectorAll("header nav a");
 
     const options = {
       root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
+      // Adjust rootMargin to trigger when the section crosses the middle of the viewport
+      rootMargin: "-20% 0px -60% 0px",
+      threshold: 0,
     };
 
-    const callback = (entries: any[]) => {
+    const callback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          linksHeader.forEach((item) => {
-            const label = item.getAttribute("aria-label");
-
-            if (label == entry.target.id) {
-              item.classList.add("text-primary");
-            } else {
-              item.classList.remove("text-primary");
-            }
+          // 1. Deactivate all links
+          linksHeader.forEach((link) => {
+            link.classList.remove("text-white");
+            // Also remove the dot indicator logic if it was used
+            const dot = link.querySelector("span.bg-white\\/5");
+            if (dot) dot.classList.remove("opacity-100", "scale-100");
           });
+
+          // 2. Activate the current link
+          const id = entry.target.id;
+          const activeLink = document.querySelector(
+            `header nav a[aria-label="${id}"]`
+          );
+
+          if (activeLink) {
+            activeLink.classList.add("text-white");
+            // Add dot indicator logic if needed
+            const dot = activeLink.querySelector("span.bg-white\\/5");
+            if (dot) dot.classList.add("opacity-100", "scale-100");
+          }
         }
       });
     };
 
-    let observer = new IntersectionObserver(callback, options);
+    const observer = new IntersectionObserver(callback, options);
 
     sections.forEach((section) => {
       observer.observe(section);
     });
 
+    // Cleanup
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
         observer.disconnect();
