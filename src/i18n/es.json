@@ -1,7 +1,6 @@
 {
   "nav": {
-    "hero": "Inicio",
-    "about": "Sobre Mí",
+    "home": "Inicio",
     "projects": "Proyectos",
     "certifications": "Certificaciones",
     "skills": "Skills",
@@ -10,17 +9,29 @@
   "hero": {
     "badge": "Disponible para nuevos retos",
     "titlePrefix": "Creando Experiencias",
-    "titleGradient": "Digitales Profundas",
-    "description": "Soy Alex, un Ingeniero de Software Full Stack. Fusiono la lógica técnica con un diseño fluido como el agua para construir aplicaciones web escalables, intuitivas y memorables.",
+    "titleGradient": "Full Stack de Calidad",
+    "description": "Soy Moises, un Desarrollador Full Stack. Me especializo en la creación de interfaces web funcionales y optimizadas, con experiencia en tecnologías modernas para construir aplicaciones eficientes y accesibles.",
     "cta": "Ver Portafolio",
     "scroll": "Descubre más"
   },
+  "presentation": {
+    "name": "Moisés Lara",
+    "title": "Full Stack Developer",
+    "description": "Desarrollador Full Stack apasionado por las tecnologías modernas, creando experiencias digitales excepcionales con un enfoque en la calidad y el rendimiento.",
+    "email": "moisesdavidlara1@gmail.com",
+    "github": "https://github.com/Larasoft123",
+    "linkedin": "https://www.linkedin.com/in/moises-lara/",
+    "twitter": "https://x.com/Moises_Lara2025",
+    "portfolio": "https://moises-lara.github.io/",
+    "phrase": "Transformando ideas complejas en experiencias digitales memorables.",
+    "aboutShort": "Desarrollador Full Stack apasionado por crear soluciones digitales innovadoras y eficientes."
+  },
   "about": {
-    "title": "Más que código,",
-    "titleGradient": "Creo Soluciones",
-    "description": "Mi viaje comenzó hace más de 6 años con una simple curiosidad por cómo funcionaban las cosas en la web. Hoy, esa curiosidad se ha transformado en una carrera apasionante construyendo arquitecturas complejas y experiencias de usuario fluidas.",
-    "imageTitle": "Alex Dev",
-    "imageSubtitle": "Ingeniero Full Stack",
+    "title": "Sobre mí",
+    "titleGradient": "y mi trayectoria",
+    "description": "Soy Moises, un Desarrollador Full Stack. Me especializo en la creación de interfaces web funcionales y optimizadas, con experiencia en tecnologías modernas para construir aplicaciones eficientes y accesibles.",
+    "imageTitle": "Moises Lara",
+    "imageSubtitle": "Full Stack Developer",
     "cards": [
       {
         "title": "Desarrollo Limpio",
@@ -49,68 +60,95 @@
     "items": [
       {
         "id": 1,
-        "title": "E-Commerce AI Dashboard",
-        "description": "Plataforma de análisis para e-commerce que utiliza ML para predecir tendencias de ventas. Dashboard interactivo en tiempo real.",
-        "tags": ["React", "Python", "TensorFlow", "D3.js"],
-        "image": "https://picsum.photos/seed/project1/800/600",
-        "link": "#",
-        "github": "#"
+        "title": "Juego de Memoria",
+        "description": "Juego de memoria hecho con JavaScript vanila, !Porque me gusta sufrir!",
+        "image": "../../images/proyects/Juego-memoria.webp",
+        "link": "https://larasoft123.github.io/juego-memoria/",
+        "tags": [
+          { "name": "javascript" },
+          { "name": "CSS" },
+          { "name": "HTML" }
+        ],
+        "github": "https://github.com/Larasoft123/juego-memoria"
       },
       {
-        "id": 2,
-        "title": "NeoBank Mobile App",
-        "description": "Aplicación web progresiva (PWA) para gestión financiera personal con animaciones fluidas y modo offline.",
-        "tags": ["React Native", "Firebase", "TypeScript"],
-        "image": "https://picsum.photos/seed/project2/800/600",
-        "link": "#",
-        "github": "#"
-      },
-      {
-        "id": 3,
-        "title": "Crypto Portfolio Tracker",
-        "description": "Rastreador de portafolio de criptomonedas con actualizaciones de precios en tiempo real vía WebSockets.",
-        "tags": ["Next.js", "WebSocket", "Tailwind"],
-        "image": "https://picsum.photos/seed/project3/800/600",
-        "link": "#",
-        "github": "#"
+        "id": 4,
+        "title": "La velada del año V",
+        "description": "Participación en el proyecto de 'La Velada del Año V' liderado por la comunidad de Midudev, el evento más esperado organizado por Ibai Llanos.",
+        "image": "../../images/proyects/Velada.webp",
+        "link": "https://la-velada-web-oficial-h4wiyiv2f-midudev-pro.vercel.app/",
+        "tags": [
+          { "name": "typescript" },
+          { "name": "CSS" },
+          { "name": "HTML" },
+          { "name": "javascript" },
+          { "name": "tailwind" }
+        ],
+        "github": "https://github.com/midudev/la-velada-web-oficial"
       }
     ]
   },
   "certifications": {
-    "title": "Certificaciones & Logros",
+    "title": "Certificaciones ",
+    "titleHighlight": "& Logros",
     "subtitle": "Validación técnica de mis habilidades a través de estándares de la industria.",
     "issuedBy": "Emitido por",
     "viewCredential": "Ver Credencial",
     "items": [
-      {
+         {
         "id": 1,
-        "name": "AWS Certified Solutions Architect",
+        "name": "AWS Cloud Practitioner Essentials",
         "issuer": "Amazon Web Services",
-        "date": "2023",
-        "badgeUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png",
-        "link": "#"
+        "date": "2026",
+        "shortIssuer": "AWS",
+        "link": "https://drive.google.com/file/d/1WNhgwuI-Jia8LUrRU2yLIKPoEModl1qf/view?usp=sharing"
       },
       {
         "id": 2,
-        "name": "Google Cloud Professional Developer",
-        "issuer": "Google Cloud",
-        "date": "2022",
-        "badgeUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Google_Cloud_logo.svg/2560px-Google_Cloud_logo.svg.png",
-        "link": "#"
+        "name": "Introduction to AWS Lambda",
+        "issuer": "Amazon Web Services",
+        "date": "2026",
+        "shortIssuer": "AWS",
+        "link": "https://drive.google.com/file/d/1lFq5iAfDwwgh4G-COWX3NCWT2mYcioRt/view?usp=sharing"
       },
       {
         "id": 3,
-        "name": "Meta Frontend Professional",
-        "issuer": "Meta / Coursera",
-        "date": "2021",
-        "badgeUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
-        "link": "#"
+        "name": "Getting Started with AWS IoT",
+        "issuer": "Amazon Web Services",
+        "date": "2026",
+        "shortIssuer": "AWS",
+        "link": "https://drive.google.com/file/d/1u4IJjPrQYppbgIk6b53xnbRBCKdU8P3_/view?usp=sharing"
+      },
+      {
+        "id": 4,
+        "name": "Fundamentals of Machine Learning and Artificial Intelligence",
+        "issuer": "Amazon Web Services",
+        "date": "2026",
+        "shortIssuer": "AWS",
+        "link": "https://drive.google.com/file/d/1EqwJqaXbNiSZLryo6rZFRYR7eG270s3Y/view?usp=sharing"
+      },
+      {
+        "id": 5,
+        "name": "AWS Technical Essentials",
+        "issuer": "Amazon Web Services",
+        "date": "2026",
+        "shortIssuer": "AWS",
+        "link": "https://drive.google.com/file/d/1Q4YL4y1wF8CxoJiB44XZIWMLP8JC1A4t/view?usp=sharing"
+      },
+      {
+        "id": 6,
+        "name": "Introduction to Generative AI - Artof the Possible",
+        "issuer": "Amazon Web Services",
+        "date": "2026",
+        "shortIssuer": "AWS",
+        "link": "https://drive.google.com/file/d/16C_tjd5Nh1O61ms_mCY1P8TKBMbAilSq/view?usp=sharing"
       }
     ]
   },
   "skills": {
     "title": "Arsenal Técnico",
     "subtitle": "Una visualización de mis competencias principales y áreas de especialización.",
+    "coreTechnologies": "Tecnologías Core",
     "radarData": [
       { "subject": "Frontend", "A": 95, "fullMark": 100 },
       { "subject": "Backend", "A": 85, "fullMark": 100 },
@@ -122,9 +160,9 @@
     "sideTitle": "Más allá del código",
     "sideDesc": "No solo escribo código; diseño soluciones. Mi enfoque combina una sólida ingeniería con una sensibilidad estética refinada.",
     "list": [
-      { "title": "Frontend", "desc": "React, TypeScript, Next.js, Tailwind" },
+      { "title": "Frontend", "desc": "React, TypeScript, Next.js, Tailwind, Astro" },
       { "title": "Backend", "desc": "Node.js, Express, Python, PostgreSQL" },
-      { "title": "Herramientas", "desc": "Git, Docker, Webpack, Vite" },
+      { "title": "Herramientas", "desc": "Git, Docker, Vite" },
       { "title": "Soft Skills", "desc": "Liderazgo, Comunicación, Agile" }
     ]
   },
@@ -132,11 +170,26 @@
     "badge": "IA",
     "title": "Asistente Virtual",
     "subtitle": "Potenciado por Gemini.",
-    "initialMessage": "¡Hola! Soy el asistente de Alex. ¿En qué puedo ayudarte?",
+    "initialMessage": "¡Hola! Soy el asistente de Moises. ¿En qué puedo ayudarte?",
     "placeholder": "Pregúntame algo...",
     "loading": "Pensando...",
     "disclaimer": "Powered by Gemini AI",
-    "systemInstruction": "\n          Eres el asistente virtual personal de Alex.\n          Tu trabajo es responder preguntas sobre su experiencia profesional, habilidades y proyectos.\n          Alex es un Ingeniero de Software Senior Full Stack con 6+ años de experiencia.\n          Stack: TypeScript, React, Tailwind, GCP, Python.\n          Personalidad: Curioso, innovador.\n          Responde siempre en ESPAÑOL. Sé breve y conciso (máximo 2-3 frases).\n        "
+    "systemInstruction": "\n          Eres el asistente virtual personal de Moises.\n          Tu trabajo es responder preguntas sobre su experiencia profesional, habilidades y proyectos.\n          Moises es un Ingeniero de Software Senior Full Stack con 6+ años de experiencia.\n          Stack: TypeScript, React, Tailwind, GCP, Python.\n          Personalidad: Curioso, innovador.\n          Responde siempre en ESPAÑOL. Sé breve y conciso (máximo 2-3 frases).\n        "
+  },
+  "experience": {
+    "title": "Experiencia",
+    "titleHighlight": "Profesional",
+    "description": "Más de media década impulsando la innovación tecnológica a través de roles clave en desarrollo y gestión.",
+    "sectionTitle": "Experiencia",
+    "latestLabel": "Actual",
+    "list": [
+      {
+        "title": "Retoques de fotografías en Photoshop",
+        "description": "Trabajo Freelance con retoques y arreglos de imagenes en Photoshop.",
+        "timeData": "2026 - Presente",
+        "latest": true
+      } 
+    ]
   },
   "contact": {
     "title": "Empecemos a crear",
@@ -148,6 +201,6 @@
       "message": "Mensaje",
       "btn": "Enviar Mensaje"
     },
-    "footer": "© 2024 Alex Dev. Diseñado con React, Tailwind & Gemini."
+    "footer": "© 2026 Moises (Larasoft123). Diseñado con Astro, Tailwind."
   }
 }

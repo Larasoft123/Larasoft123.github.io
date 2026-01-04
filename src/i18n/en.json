@@ -1,7 +1,6 @@
 {
   "nav": {
-    "hero": "Home",
-    "about": "About",
+    "home": "Home",
     "projects": "Projects",
     "certifications": "Certifications",
     "skills": "Skills",
@@ -9,17 +8,29 @@
   },
   "hero": {
     "badge": "Open to new opportunities",
-    "titlePrefix": "Crafting Deep",
-    "titleGradient": "Digital Experiences",
-    "description": "I'm Alex, a Full Stack Software Engineer. I merge technical logic with water-like fluid design to build scalable, intuitive, and memorable web applications.",
+    "titlePrefix": "Crafting",
+    "titleGradient": "Front-end Experiences",
+    "description": "I'm Moises, a Front-end Developer. I specialize in creating functional and optimized web interfaces, with experience in modern technologies to build efficient and accessible applications.",
     "cta": "View Work",
     "scroll": "Discover"
   },
+  "presentation": {
+    "name": "Moisés Lara",
+    "title": "Full Stack Developer",
+    "description": "Full Stack Developer passionate about modern technologies, creating exceptional digital experiences with a focus on quality and performance.",
+    "email": "moisesdavidlara1@gmail.com",
+    "github": "https://github.com/Larasoft123",
+    "linkedin": "https://www.linkedin.com/in/moises-lara/",
+    "twitter": "https://x.com/Moises_Lara2025",
+    "portfolio": "https://moises-lara.github.io/",
+    "phrase": "Transforming complex ideas into memorable digital experiences.",
+    "aboutShort": "Full Stack Developer passionate about creating innovative and efficient digital solutions."
+  },
   "about": {
-    "title": "Beyond Code,",
-    "titleGradient": "I Create Solutions",
+    "title": "About me",
+    "titleGradient": "and my journey",
     "description": "My journey began over 6 years ago with a simple curiosity about how things worked on the web. Today, that curiosity has evolved into a passionate career building complex architectures and fluid user experiences.",
-    "imageTitle": "Alex Dev",
+    "imageTitle": "Moises Lara",
     "imageSubtitle": "Full Stack Engineer",
     "cards": [
       {
@@ -49,68 +60,95 @@
     "items": [
       {
         "id": 1,
-        "title": "E-Commerce AI Dashboard",
-        "description": "E-commerce analytics platform using ML to predict sales trends. Real-time interactive dashboard.",
-        "tags": ["React", "Python", "TensorFlow", "D3.js"],
-        "image": "https://picsum.photos/seed/project1/800/600",
-        "link": "#",
-        "github": "#"
+        "title": "Memory Game",
+        "description": "Memory game built with vanilla JavaScript, because I enjoy a challenge!",
+        "image": "../../images/proyects/Juego-memoria.webp",
+        "link": "https://larasoft123.github.io/juego-memoria/",
+        "tags": [
+          { "name": "javascript" },
+          { "name": "CSS" },
+          { "name": "HTML" }
+         ],
+        "github": "https://github.com/Larasoft123/juego-memoria"
       },
       {
-        "id": 2,
-        "title": "NeoBank Mobile App",
-        "description": "Progressive Web App (PWA) for personal finance management with fluid animations and offline mode.",
-        "tags": ["React Native", "Firebase", "TypeScript"],
-        "image": "https://picsum.photos/seed/project2/800/600",
-        "link": "#",
-        "github": "#"
-      },
-      {
-        "id": 3,
-        "title": "Crypto Portfolio Tracker",
-        "description": "Cryptocurrency portfolio tracker with real-time price updates via WebSockets.",
-        "tags": ["Next.js", "WebSocket", "Tailwind"],
-        "image": "https://picsum.photos/seed/project3/800/600",
-        "link": "#",
-        "github": "#"
+        "id": 4,
+        "title": "La Velada del Año V",
+        "description": "Participation in 'La Velada del Año V' project led by Midudev's community, the most anticipated event organized by Ibai Llanos.",
+        "image": "../../images/proyects/Velada.webp",
+        "link": "https://la-velada-web-oficial-h4wiyiv2f-midudev-pro.vercel.app/",
+        "tags": [
+          { "name": "typescript" },
+          { "name": "CSS" },
+          { "name": "HTML" },
+          { "name": "javascript" },
+          { "name": "tailwind" }
+        ],
+        "github": "https://github.com/midudev/la-velada-web-oficial"
       }
     ]
   },
   "certifications": {
-    "title": "Certifications & Achievements",
+    "title": "Certifications ",
+    "titleHighlight": "& Achievements",
     "subtitle": "Technical validation of my skills through industry standards.",
     "issuedBy": "Issued by",
     "viewCredential": "View Credential",
     "items": [
-      {
+       {
         "id": 1,
-        "name": "AWS Certified Solutions Architect",
+        "name": "AWS Cloud Practitioner Essentials",
         "issuer": "Amazon Web Services",
-        "date": "2023",
-        "badgeUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1024px-Amazon_Web_Services_Logo.svg.png",
-        "link": "#"
+        "date": "2026",
+        "shortIssuer": "AWS",
+        "link": "https://drive.google.com/file/d/1WNhgwuI-Jia8LUrRU2yLIKPoEModl1qf/view?usp=sharing"
       },
       {
         "id": 2,
-        "name": "Google Cloud Professional Developer",
-        "issuer": "Google Cloud",
-        "date": "2022",
-        "badgeUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Google_Cloud_logo.svg/2560px-Google_Cloud_logo.svg.png",
-        "link": "#"
+        "name": "Introduction to AWS Lambda",
+        "issuer": "Amazon Web Services",
+        "date": "2026",
+        "shortIssuer": "AWS",
+        "link": "https://drive.google.com/file/d/1lFq5iAfDwwgh4G-COWX3NCWT2mYcioRt/view?usp=sharing"
       },
       {
         "id": 3,
-        "name": "Meta Frontend Professional",
-        "issuer": "Meta / Coursera",
-        "date": "2021",
-        "badgeUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
-        "link": "#"
+        "name": "Getting Started with AWS IoT",
+        "issuer": "Amazon Web Services",
+        "date": "2026",
+        "shortIssuer": "AWS",
+        "link": "https://drive.google.com/file/d/1u4IJjPrQYppbgIk6b53xnbRBCKdU8P3_/view?usp=sharing"
+      },
+      {
+        "id": 4,
+        "name": "Fundamentals of Machine Learning and Artificial Intelligence",
+        "issuer": "Amazon Web Services",
+        "date": "2026",
+        "shortIssuer": "AWS",
+        "link": "https://drive.google.com/file/d/1EqwJqaXbNiSZLryo6rZFRYR7eG270s3Y/view?usp=sharing"
+      },
+      {
+        "id": 5,
+        "name": "AWS Technical Essentials",
+        "issuer": "Amazon Web Services",
+        "date": "2026",
+        "shortIssuer": "AWS",
+        "link": "https://drive.google.com/file/d/1Q4YL4y1wF8CxoJiB44XZIWMLP8JC1A4t/view?usp=sharing"
+      },
+      {
+        "id": 6,
+        "name": "Introduction to Generative AI - Artof the Possible",
+        "issuer": "Amazon Web Services",
+        "date": "2026",
+        "shortIssuer": "AWS",
+        "link": "https://drive.google.com/file/d/16C_tjd5Nh1O61ms_mCY1P8TKBMbAilSq/view?usp=sharing"
       }
     ]
   },
   "skills": {
     "title": "Technical Arsenal",
     "subtitle": "A visualization of my core competencies and areas of expertise.",
+    "coreTechnologies": "Core Technologies",
     "radarData": [
       { "subject": "Frontend", "A": 95, "fullMark": 100 },
       { "subject": "Backend", "A": 85, "fullMark": 100 },
@@ -122,9 +160,9 @@
     "sideTitle": "Beyond Code",
     "sideDesc": "I don't just write code; I design solutions. My approach combines solid engineering with refined aesthetic sensibility.",
     "list": [
-      { "title": "Frontend", "desc": "React, TypeScript, Next.js, Tailwind" },
+      { "title": "Frontend", "desc": "React, TypeScript, Next.js, Tailwind, Astro" },
       { "title": "Backend", "desc": "Node.js, Express, Python, PostgreSQL" },
-      { "title": "Tools", "desc": "Git, Docker, Webpack, Vite" },
+      { "title": "Tools", "desc": "Git, Docker, Vite" },
       { "title": "Soft Skills", "desc": "Leadership, Communication, Agile" }
     ]
   },
@@ -132,11 +170,27 @@
     "badge": "AI",
     "title": "Virtual Assistant",
     "subtitle": "Powered by Gemini.",
-    "initialMessage": "Hi! I'm Alex's assistant. How can I help you?",
+    "initialMessage": "Hi! I'm Moises's assistant. How can I help you?",
     "placeholder": "Ask me anything...",
     "loading": "Thinking...",
     "disclaimer": "Powered by Gemini AI",
-    "systemInstruction": "\n          You are the personal virtual assistant of Alex.\n          Your job is to answer questions about their professional experience, skills, and projects.\n          Alex is a Senior Full Stack Software Engineer with 6+ years of experience.\n          Stack: TypeScript, React, Tailwind, GCP, Python.\n          Personality: Curious, innovative.\n          Always answer in ENGLISH. Be brief and concise (max 2-3 sentences).\n        "
+    "systemInstruction": "\n          You are the personal virtual assistant of Moises.\n          Your job is to answer questions about their professional experience, skills, and projects.\n          Moises is a Senior Full Stack Software Engineer with 6+ years of experience.\n          Stack: TypeScript, React, Tailwind, GCP, Python.\n          Personality: Curious, innovative.\n          Always answer in ENGLISH. Be brief and concise (max 2-3 sentences).\n        "
+  },
+  "experience": {
+    "title": "Professional",
+    "titleHighlight": "Experience",
+    "description": "Over half a decade driving technological innovation through key roles in development and management.",
+    "sectionTitle": "Experience",
+    "latestLabel": "Latest",
+    "list": [
+      {
+        "title": "Photoshop Photo Retouching",
+        "description": "Freelance work involving photo retouching and image editing in Photoshop.",
+        "timeData": "2026 - Present",
+        "latest": true
+      }
+
+    ]
   },
   "contact": {
     "title": "Let's create something",
@@ -148,6 +202,6 @@
       "message": "Message",
       "btn": "Send Message"
     },
-    "footer": "© 2024 Alex Dev. Designed with React, Tailwind & Gemini."
+    "footer": "© 2026 Moises (Larasoft123). Designed with Astro, Tailwind."
   }
 }
