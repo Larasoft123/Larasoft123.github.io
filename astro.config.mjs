@@ -2,8 +2,10 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
+  site: "https://larasoft123.github.io",
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],
@@ -16,5 +18,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [react()],
+  integrations: [react(), sitemap()],
 });
