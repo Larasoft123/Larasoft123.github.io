@@ -1,0 +1,55 @@
+---
+import ProyectCard from "@/components/ProyectCard.astro";
+import SpotlightEffect from "@/components/SpotlightEffect.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { type Project } from "@/types/types";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const projectsData = t("projects.items") as Project[];
+---
+
+<section id="nav.projects" class="container mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-20">
+      <h2 class="text-4xl font-black tracking-tight text-text-main sm:text-6xl mb-6">
+        {t('projects.title')} <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t('projects.titleHighlight')}</span>
+      </h2>
+      <p class="text-xl leading-relaxed text-text-muted max-w-2xl mx-auto">
+        {t('projects.subtitle')}
+      </p>
+    </div>
+
+
+    <SpotlightEffect class="mb-20">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          projectsData.map(
+            (project) => (
+              <ProyectCard
+                {...project}
+              />
+            )
+          )
+        }
+      </div>
+
+      <div
+        slot="overlay"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        {
+          projectsData.map(
+            (project) => (
+              <ProyectCard
+                {...project}
+                isOverlay={true}
+              />
+            )
+          )
+        }
+      </div>
+    </SpotlightEffect>
+  </div>
+</section>
