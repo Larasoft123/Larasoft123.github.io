@@ -11,6 +11,15 @@ export interface Project {
 }
 
 
+export interface ExperienceItem {
+    title: string;
+    description: string;
+    timeData: string;
+    latest?: boolean;
+}
+
+
+
 export interface Tag {
     name: string
 }
@@ -32,13 +41,12 @@ export interface Certification {
     name: string;
     issuer: string;
     date: string;
-    badgeUrl: string;
+    shortIssuer: string
     link: string;
 }
 
 export enum SectionId {
     HERO = 'hero',
-    ABOUT = 'about',
     PROJECTS = 'projects',
     SKILLS = 'skills',
     CERTIFICATIONS = 'certifications',
