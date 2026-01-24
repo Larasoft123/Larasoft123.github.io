@@ -1,0 +1,34 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import CertificationCard from "@/components/Certification/CertificationCard.astro";
+import { type Certification } from "@/types/types";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const title = t("certifications.title");
+const titleHighlight = t("certifications.titleHighlight");
+const subtitle = t("certifications.subtitle");
+const certs = t("certifications.items") as Certification[];
+---
+
+<section id="nav.certifications" class="py-24 lg:py-32 bg-surface/30 relative">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-20">
+      <h2
+        class="text-4xl font-black tracking-tight text-text-main sm:text-6xl mb-6"
+      >
+        {title} <span class="text-accent">{titleHighlight}</span>
+      </h2>
+      <p class="text-xl text-text-muted max-w-2xl mx-auto">
+        {subtitle}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {certs.map((cert) => <CertificationCard {...cert} />)}
+    </div>
+
+    <!-- here maybe the education -->
+  </div>
+</section>
