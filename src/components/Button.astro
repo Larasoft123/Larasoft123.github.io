@@ -1,31 +1,64 @@
 ---
 const variants = {
   primary:
-    "px-4 py-2 text-sm font-semibold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors",
+    "bg-primary text-black hover:bg-primary/90 shadow-lg shadow-primary/20",
   secondary:
-    "px-4 py-2 text-sm font-semibold text-white bg-gray-600/70 rounded-lg hover:bg-gray-600/90 transition-colors",
-  badge:
-    "px-4 py-2 text-sm font-medium text-gray-300 bg-gray-700/50 hover:bg-primary/80 rounded-full transition-colors",
+    "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/10",
+  outline:
+    "bg-transparent border border-primary/50 text-primary hover:bg-primary/10",
+  ghost: "bg-transparent text-gray-300 hover:text-white hover:bg-white/5",
+  glass:
+    "bg-white/5 text-white hover:bg-white/10 backdrop-blur-md border border-white/10 shadow-lg",
+};
+
+const sizes = {
+  sm: "px-3 py-1.5 text-xs",
+  md: "px-5 py-2.5 text-sm",
+  lg: "px-6 py-3 text-base",
 };
 
 interface Props {
   text: string;
   isLink?: boolean;
   variant?: keyof typeof variants;
+  size?: keyof typeof sizes;
   class?: string;
   href?: string;
+  target?: string;
+  type?: "button" | "submit" | "reset";
 }
 
 const {
   text,
   variant = "primary",
+  size = "md",
   class: ClassName = "",
   isLink = false,
   href = "",
+  target = "_self",
+  type = "button",
 } = Astro.props;
 ---
 
-<button class={`${variants[variant]} ${ClassName}`}>
-  {isLink && <a href={href}>{text}</a>}
-  {!isLink && text}
-</button>
+{
+  isLink ? (
+    <a
+      href={href}
+      target={target}
+      class={`inline-flex items-center justify-center rounded-xl font-medium transition-all duration-300 active:scale-95 ${variants[variant]} ${sizes[size]} ${ClassName}`}
+    >
+      <slot name="icon" />
+      {text}
+      <slot name="after-icon" />
+    </a>
+  ) : (
+    <button
+      type={type as "button" | "submit" | "reset"}
+      class={`inline-flex items-center justify-center rounded-xl font-medium transition-all duration-300 active:scale-95 ${variants[variant]} ${sizes[size]} ${ClassName}`}
+    >
+      <slot name="icon" />
+      {text}
+      <slot name="after-icon" />
+    </button>
+  )
+}
