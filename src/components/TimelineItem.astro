@@ -1,43 +1,51 @@
 ---
-import type { ITimelineItem } from "@/types/timelineType";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import type { ExperienceItem } from "@/types/types";
 
-type Props = ITimelineItem;
-const { Icon, description, timeData, title, latest } = Astro.props;
+
+interface Props extends ExperienceItem {
+    
+}
+
+const { description, timeData, title, latest } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<!-- absolute left-0 top-1 flex size-8 items-center justify-center rounded-full bg-primary/20 text-primary -->
-<li class="mb-10 ms-6">
+<li class="relative ml-6 pb-12 last:pb-0">
+  
+  <div
+    class="absolute -left-[29px] top-2 h-full w-[2px] bg-primary/20 last:hidden"
+  >
+  </div>
+ 
   <span
-    class="absolute flex items-center justify-center w-6 h-6 rounded-full -start-3 ring-8 te ring-gray-900 bg-blue-900/80"
+    class="absolute -left-9 flex h-4 w-4 items-center justify-center rounded-full bg-primary ring-4 ring-background"
   >
-    <svg
-      class="w-2.5 h-2.5 text-blue-300"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="currentColor"
-      viewBox="0 0 20 20"
-    >
-      <path
-        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
-      ></path>
-    </svg>
   </span>
+ 
+  <div class="group relative transition-all duration-300">
+    <h4
+      class="flex items-center text-lg font-bold text-text-main group-hover:text-primary transition-colors"
+    >
+      {title}
+      {
+        latest && (
+          <span class="ml-3 rounded-md bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary border border-primary/20">
+            {t("experience.latestLabel")}
+          </span>
+        )
+      }
+    </h4>
 
-  <h3 class="flex items-center mb-1 text-lg font-semibold text-white">
-    {title}
-
-    {
-      latest && (
-        <span class="  text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-blue-900 text-blue-300 ms-3">
-          Latest
-        </span>
-      )
-    }
-  </h3>
-  <time class="block mb-2 text-sm font-normal leading-none 0 text-white/80"
-    >{timeData}</time
-  >
-  <p class="mb-4 text-base font-normal text-white/60">
-    {description}
-  </p>
+    <time class="my-2 block text-sm font-medium leading-none text-text-muted opacity-80"
+      >{timeData}</time
+    >
+    <p
+      class="mb-4 text-base font-normal text-text-muted leading-relaxed max-w-[80%]"
+    >
+      {description}
+    </p>
+  </div>
 </li>
