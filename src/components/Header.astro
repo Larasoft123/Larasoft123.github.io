@@ -14,7 +14,6 @@ const translatePath = useTranslatedPath(lang as Language);
 
 const navItems = [
   { key: "nav.home", href: "#nav.home" },
-  { key: "nav.about", href: "#nav.about" },
   { key: "nav.projects", href: "#nav.projects" },
   { key: "nav.skills", href: "#nav.skills" },
   { key: "nav.certifications", href: "#nav.certifications" },
@@ -22,7 +21,6 @@ const navItems = [
 ];
 
 const LinkstoSections = navItems.map((item) => ({
-  // @ts-ignore
   name: t(item.key),
   href: item.href.startsWith("#") ? item.href : translatePath(item.href),
   label: item.key,
@@ -57,7 +55,7 @@ const getHref = (href: string) => {
           <Code class="text-primary w-5 h-5" aria-hidden="true" />
         </div>
         <span
-          class="hidden sm:block text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70"
+          class="hidden sm:block text-lg font-black text-text-main tracking-tighter font-display"
         >
           Larasoft
         </span>
@@ -73,11 +71,13 @@ const getHref = (href: string) => {
         LinkstoSections.map((item) => (
           <a
             href={getHref(item.href)}
-            aria-label={item.label}
-            class="nav-link px-5 py-2 text-sm font-medium text-text-muted hover:text-white transition-colors relative group"
+            aria-label={item.name}
+            data-i18n={item.label}
+            class="px-5 py-2 text-sm font-semibold text-text-muted hover:text-white transition-colors relative group"
           >
             {item.name}
-            <span class="absolute inset-0 bg-white/5 rounded-full scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />
+
+            <span class="absolute inset-0 bg-primary/10 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300" />
           </a>
         ))
       }
@@ -91,11 +91,10 @@ const getHref = (href: string) => {
         id="menu-toggle"
         aria-expanded="false"
         aria-controls="mobile-menu"
-        aria-label="Toggle Mobile Menu"
-        class="lg:hidden text-text-main p-2 hover:bg-white/5 rounded-full transition-colors focus:ring-2 focus:ring-primary/50 focus:outline-none"
+        class="lg:hidden text-text-main p-2 hover:bg-white/5 rounded-full transition-colors focus:outline-none z-50"
       >
-        <Menu id="menu-icon" class="w-6 h-6 block" aria-hidden="true" />
-        <X id="close-icon" class="w-6 h-6 hidden" aria-hidden="true" />
+        <Menu id="menu-icon" class="w-6 h-6 block" />
+        <X id="close-icon" class="w-6 h-6 hidden" />
       </button>
     </div>
   </div>
@@ -103,34 +102,19 @@ const getHref = (href: string) => {
   {/* Mobile Nav Content */}
   <div
     id="mobile-menu"
-    class="lg:hidden w-full overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out max-h-0 opacity-0 relative"
+    class="lg:hidden w-full overflow-hidden transition-all duration-300 ease-in-out max-h-0 bg-[#0f172ae6]"
   >
-    {/* Animated Background */}
-    <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-      <div class="absolute inset-0 bg-background/95 backdrop-blur-xl"></div>
-      <div
-        class="absolute -top-[50%] -left-[50%] w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,var(--primary)_0%,transparent_50%)] opacity-[0.03] animate-[spin_20s_linear_infinite]"
-      >
-      </div>
-      <div
-        class="absolute -bottom-[50%] -right-[50%] w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,var(--secondary)_0%,transparent_50%)] opacity-[0.03] animate-[spin_15s_linear_infinite_reverse]"
-      >
-      </div>
-    </div>
-
-    <nav
-      class="flex flex-col items-center gap-2 py-8 px-6 border-t border-white/5"
-      aria-label="Mobile Navigation"
-    >
+    <div class="w-full h-px bg-white/10 my-2"></div>
+    <nav class="flex flex-col items-center gap-2 py-4 px-6">
       {
         LinkstoSections.map((item) => (
           <a
             href={getHref(item.href)}
-            aria-label={item.label}
-            class="mobile-link w-full text-center py-4 text-lg font-medium text-text-muted hover:text-white hover:bg-white/5 transition-all rounded-2xl group flex items-center justify-center gap-3"
+            aria-label={item.name}
+            data-i18n={item.label}
+            class="mobile-link w-full text-center py-3 text-base font-medium text-text-muted hover:text-white hover:bg-white/5 transition-all rounded-xl"
           >
-            <span>{item.name}</span>
-            <span class="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+            {item.name}
           </a>
         ))
       }
@@ -139,61 +123,38 @@ const getHref = (href: string) => {
 </header>
 
 <script>
-  /**
-   * MOBILE MENU LOGIC
-   */
-  function initMobileMenu() {
+  document.addEventListener("astro:page-load", () => {
+    // Mobile Menu Logic
     const menuToggle = document.getElementById("menu-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
     const menuIcon = document.getElementById("menu-icon");
     const closeIcon = document.getElementById("close-icon");
     const mobileLinks = document.querySelectorAll(".mobile-link");
+    const header = document.getElementById("main-header");
 
-    if (!menuToggle || !mobileMenu || !menuIcon || !closeIcon) return;
+    if (menuToggle && mobileMenu && menuIcon && closeIcon && header) {
+      const toggleMenu = () => {
+        const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+        const newExpanded = !isExpanded;
 
-    const toggleMenu = (show: boolean) => {
-      const isExpanded = show;
-      menuToggle.setAttribute("aria-expanded", isExpanded.toString());
+        menuToggle.setAttribute("aria-expanded", newExpanded.toString());
+        const maxHeight = newExpanded ? `${mobileMenu.scrollHeight}px` : "0";
+        mobileMenu.style.maxHeight = maxHeight;
+        mobileMenu.classList.toggle("max-h-0");
+        header.classList.toggle("bg-[#0f172ae6]!");
+        menuIcon.classList.toggle("hidden", newExpanded);
+        closeIcon.classList.toggle("hidden", !newExpanded);
+      };
 
-      if (show) {
-        mobileMenu.classList.replace("max-h-0", "max-h-[600px]");
-        mobileMenu.classList.replace("opacity-0", "opacity-100");
-        menuIcon.classList.replace("block", "hidden");
-        closeIcon.classList.replace("hidden", "block");
-        document.body.style.overflow = "hidden"; // Prevent scroll when menu open
-      } else {
-        mobileMenu.classList.replace("max-h-[600px]", "max-h-0");
-        mobileMenu.classList.replace("opacity-100", "opacity-0");
-        menuIcon.classList.replace("hidden", "block");
-        closeIcon.classList.replace("block", "hidden");
-        document.body.style.overflow = "";
-      }
-    };
+      menuToggle.addEventListener("click", toggleMenu);
 
-    menuToggle.addEventListener("click", () => {
-      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-      toggleMenu(!isExpanded);
-    });
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", toggleMenu);
+      });
+    }
 
-    mobileLinks.forEach((link) => {
-      link.addEventListener("click", () => toggleMenu(false));
-    });
-
-    // Close on escape
-    window.addEventListener("keydown", (e) => {
-      if (
-        e.key === "Escape" &&
-        menuToggle.getAttribute("aria-expanded") === "true"
-      ) {
-        toggleMenu(false);
-      }
-    });
-  }
-
-  /**
-   * SCROLL SPY (INTERSECTION OBSERVER) LOGIC
-   */
-  function initScrollSpy() {
+    
+    // Selection of sections for Intersection Observer
     const sectionIds = [
       "nav.home",
       "nav.about",
@@ -202,77 +163,56 @@ const getHref = (href: string) => {
       "nav.certifications",
       "nav.contact",
     ];
+    
     const sections = sectionIds
       .map((id) => document.getElementById(id))
-      .filter((s) => s !== null) as HTMLElement[];
-    const desktopLinks = document.querySelectorAll(".nav-link");
-    const mobileLinks = document.querySelectorAll(".mobile-link");
+      .filter((section) => section !== null);
 
-    if (sections.length === 0) return;
+    const linksHeader = document.querySelectorAll("header nav a");
 
-    const observerOptions = {
+    const options = {
       root: null,
-      rootMargin: "-20% 0px -60% 0px",
+      rootMargin: "0px 0px 0px 0px",
       threshold: 0,
-    };
-
-    const updateActiveLink = (id: string) => {
-      const allLinks = [...desktopLinks, ...mobileLinks];
-      allLinks.forEach((link) => {
-        const isActive = link.getAttribute("aria-label") === id;
-        link.classList.toggle("text-white", isActive);
-        link.classList.toggle("text-text-muted", !isActive);
-
-        const dot = link.querySelector("span.bg-white\\/5, span.bg-primary");
-        if (dot) {
-          if (link.classList.contains("nav-link")) {
-            dot.classList.toggle("opacity-100", isActive);
-            dot.classList.toggle("scale-100", isActive);
-          } else {
-            dot.classList.toggle("opacity-100", isActive);
-          }
-        }
-      });
     };
 
     const callback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          updateActiveLink(entry.target.id);
+          linksHeader.forEach((link) => {
+            link.classList.remove("text-white");
+            const dot = link.querySelector("span.bg-primary\\/10");
+            dot?.classList.remove("opacity-100");
+          });
+
+          const id = entry.target.id;
+          const activeLink = document.querySelector(
+            `header nav a[data-i18n="${id}"]`,
+          );
+
+          if (activeLink) {
+            activeLink.classList.add("text-white");
+            const dot = activeLink.querySelector("span.bg-primary\\/10");
+            dot?.classList.add("opacity-100");
+          }
         }
       });
     };
 
-    const observer = new IntersectionObserver(callback, observerOptions);
-    sections.forEach((section) => observer.observe(section));
+    const observer = new IntersectionObserver(callback, options);
 
-    return observer;
-  }
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
 
-  // Initialize on page load
-  document.addEventListener("astro:page-load", () => {
-    initMobileMenu();
-    const spyObserver = initScrollSpy();
-
-    // Performance: Disconnect observer when tab is inactive
-    document.addEventListener("visibilitychange", () => {
+    document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
-        spyObserver?.disconnect();
+        observer.disconnect();
       } else {
-        // Re-observe
-        const sectionIds = [
-          "nav.home",
-          "nav.about",
-          "nav.projects",
-          "nav.skills",
-          "nav.certifications",
-          "nav.contact",
-        ];
-        sectionIds.forEach((id) => {
-          const el = document.getElementById(id);
-          if (el) spyObserver?.observe(el);
+        sections.forEach((section) => {
+          observer.observe(section);
         });
       }
-    });
+    };
   });
 </script>
