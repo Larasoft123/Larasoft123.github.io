@@ -1,24 +1,23 @@
 ---
-import Timeline from "./Timeline.astro";
+import TimelineItem from "./TimelineItem.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import type { ExperienceItem } from "@/types/types";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
-const experienceData = [
-  {
-    title: "Flowbite Application UI v2.0.0",
-    description: "descripcion",
-    timeData: "Released on January 13th, 2022",
-    latest: true,
-  },
-  {
-    title: "Flowbite Application UI v2.0.0",
-    description: "descripcion",
-    timeData: "Released on January 13th, 2022",
-    latest: false,
-  },
-];
+const experienceData = t("experience.list") as ExperienceItem[];
 ---
 
 <div>
-  <h2 class="text-2xl font-bold text-white mb-6">Experiencia</h2>
-
-  <Timeline timelineData={experienceData} />
+  <h3 class="text-3xl font-bold text-white mb-10 flex items-center gap-4">
+    <span class="p-2 bg-primary/20 rounded-lg">💼</span>
+    {t("experience.sectionTitle")}
+  </h3>
+  
+  <ol class="relative border-s border-white/10 ml-3">
+    {experienceData.map((item) => (
+      <TimelineItem {...item} />
+    ))}
+  </ol>
 </div>
+
