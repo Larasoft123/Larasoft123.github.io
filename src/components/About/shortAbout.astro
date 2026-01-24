@@ -1,0 +1,22 @@
+---
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+
+<div
+  class="glass-panel p-8 rounded-3xl border border-primary/10 max-w-2xl"
+>
+  <h2 class="text-lg font-bold text-text-main mb-3 flex items-center gap-2">
+    <span class="w-8 h-1 bg-primary rounded-full"></span>
+    {t("about.title")}
+  </h2>
+  <p class="text-text-muted leading-relaxed">
+    {t("presentation.aboutShort")}
+  </p>
+</div>
+
+
