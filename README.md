@@ -17,7 +17,7 @@ Welcome to my GitHub profile! I'm a passionate developer, problem-solver, and te
 ## 🛠️ Tech Stack
 
 - **Languages**: JavaScript, Python, TypeScript, HTML, CSS
-- **Frameworks and Libraries**: React, Node.js, Express, Django
+- **Frameworks and Libraries**: React, Node.js, Express
 - **Tools**: Git, Docker, VS Code, Webpack
 - **Databases**: MongoDB, PostgreSQL, MySQL
 
@@ -31,10 +31,10 @@ Welcome to my GitHub profile! I'm a passionate developer, problem-solver, and te
 
 ## 🌐 Connect with Me
 
-- 🌎 [Portfolio Website](https://your-portfolio-link.com) *(Replace with your actual link)*
-- 💼 [LinkedIn](https://linkedin.com/in/larasoft123) *(Replace with your actual link)*
-- 🐦 [Twitter](https://twitter.com/larasoft123) *(Replace with your actual link)*
-- 📧 Email: your-email@example.com *(Replace with your email)*
+- 🌎 [Portfolio Website](https://portafolio-tau-lake.vercel.app/)
+- 💼 [LinkedIn](https://www.linkedin.com/in/moises-lara/)
+- 🐦 [Twitter](https://x.com/Moises_Lara2025)
+- 📧 Email: moisesdavidlara1@gmail.com 
 
 ---
 
