@@ -32,7 +32,7 @@ Welcome to my GitHub profile! I'm a passionate developer, problem-solver, and te
 ## 🌐 Connect with Me
 
 - 🌎 [Portfolio Website](https://portafolio-tau-lake.vercel.app/)
-- 💼 [LinkedIn](https://www.linkedin.com/in/moises-lara/)
+- 💼 [LinkedIn](https://www.linkedin.com/in/moises-lara-130532384/)
 - 🐦 [Twitter](https://x.com/Moises_Lara2025)
 - 📧 Email: moisesdavidlara1@gmail.com 
 
