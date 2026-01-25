@@ -91,6 +91,7 @@ const getHref = (href: string) => {
         id="menu-toggle"
         aria-expanded="false"
         aria-controls="mobile-menu"
+        aria-label="Toggle Mobile Menu"
         class="lg:hidden text-text-main p-2 hover:bg-white/5 rounded-full transition-colors focus:outline-none z-50"
       >
         <Menu id="menu-icon" class="w-6 h-6 block" />
@@ -157,7 +158,6 @@ const getHref = (href: string) => {
     // Selection of sections for Intersection Observer
     const sectionIds = [
       "nav.home",
-      "nav.about",
       "nav.projects",
       "nav.skills",
       "nav.certifications",
