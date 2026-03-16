@@ -95,7 +95,7 @@
     "issuedBy": "Emitido por",
     "viewCredential": "Ver Credencial",
     "items": [
-         {
+      {
         "id": 1,
         "name": "AWS Cloud Practitioner Essentials",
         "issuer": "Amazon Web Services",
@@ -160,10 +160,13 @@
     "sideTitle": "Más allá del código",
     "sideDesc": "No solo escribo código; diseño soluciones. Mi enfoque combina una sólida ingeniería con una sensibilidad estética refinada.",
     "list": [
-      { "title": "Frontend", "desc": "React, TypeScript, Next.js, Tailwind, Astro" },
+      {
+        "title": "Frontend",
+        "desc": "React, TypeScript, Next.js, Tailwind, Astro"
+      },
       { "title": "Backend", "desc": "Node.js, Express, Python, PostgreSQL" },
       { "title": "Herramientas", "desc": "Git, Docker, Vite" },
-      { "title": "Soft Skills", "desc": "Liderazgo, Comunicación, Agile" }
+      { "title": "Soft Skills", "desc": "Liderazgo, Comunicación" }
     ]
   },
   "aiChat": {
@@ -188,7 +191,7 @@
         "description": "Trabajo Freelance con retoques y arreglos de imagenes en Photoshop.",
         "timeData": "2026 - Presente",
         "latest": true
-      } 
+      }
     ]
   },
   "contact": {

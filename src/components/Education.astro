@@ -1,20 +1,7 @@
 ---
 import TimelineItem from "./TimelineItem.astro";
 
-const EducationData = [
-  {
-    title: "Ingeniería de Sistemas",
-    description: "Especialización en desarrollo de software y gestión de bases de datos.",
-    timeData: "2019 - 2023",
-    latest: true,
-  },
-  {
-    title: "Certificaciones Técnicas",
-    description: "AWS Solutions Architect, Google Cloud Professional, Meta Frontend Professional.",
-    timeData: "2021 - 2024",
-    latest: false,
-  },
-];
+
 ---
 
 <div>
@@ -24,9 +11,9 @@ const EducationData = [
   </h2>
   
   <ol class="relative border-s border-white/10 ml-3">
-    {EducationData.map((item) => (
+    <!-- {EducationData.map((item) => (
       <TimelineItem {...item} />
-    ))}
+    ))} -->
   </ol>
 </div>
 

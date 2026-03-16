@@ -1,6 +1,6 @@
 ---
 import Button from "@/components/Button.astro";
-import { Github, Linkedin, Twitter, Mail } from "@lucide/astro";
+import { Github, Linkedin, Twitter } from "@lucide/astro";
 import { Image } from "astro:assets";
 import profileImage from "@/assets/img/Moises.jpg";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
@@ -10,9 +10,6 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const name = t("presentation.name");
-const title = t("presentation.title");
-const description = t("presentation.description");
-const email = t("presentation.email");
 const github = t("presentation.github");
 const linkedin = t("presentation.linkedin");
 const twitter = t("presentation.twitter");
@@ -44,7 +41,8 @@ const twitter = t("presentation.twitter");
             class="text-6xl md:text-8xl lg:text-9xl font-black text-text-main leading-[0.9] tracking-tighter font-display"
           >
             {t("presentation.name")}
-            <span class="block text-primary drop-shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)]"
+            <span
+              class="block text-primary drop-shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)]"
               >{t("presentation.title")}</span
             >
           </h1>
@@ -110,8 +108,10 @@ const twitter = t("presentation.twitter");
       <div class="lg:col-span-12 xl:col-span-5 relative">
         <div class="relative group mx-auto max-w-sm lg:max-w-none">
           <!-- Background Decoration -->
-          <div class="absolute -top-12 -right-12 text-[15rem] font-bold text-primary/5 select-none font-display pointer-events-none hidden xl:block">
-            {t("presentation.name").split(' ')[0]}
+          <div
+            class="absolute -top-12 -right-12 text-[15rem] font-bold text-primary/5 select-none font-display pointer-events-none hidden xl:block"
+          >
+            {t("presentation.name").split(" ")[0]}
           </div>
 
           <!-- Background Glow -->

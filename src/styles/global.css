@@ -1,6 +1,6 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @import "tw-animate-css";
-@plugin "@midudev/tailwind-animations";
+@import 'tailwind-animations';
 
 
 @theme {
@@ -92,6 +92,10 @@
   --text-muted: #94a3b8;
 }
 
+
+button {
+  cursor: pointer;
+}
 
 /* Base Styles */
 body {

@@ -68,7 +68,7 @@
           { "name": "javascript" },
           { "name": "CSS" },
           { "name": "HTML" }
-         ],
+        ],
         "github": "https://github.com/Larasoft123/juego-memoria"
       },
       {
@@ -95,7 +95,7 @@
     "issuedBy": "Issued by",
     "viewCredential": "View Credential",
     "items": [
-       {
+      {
         "id": 1,
         "name": "AWS Cloud Practitioner Essentials",
         "issuer": "Amazon Web Services",
@@ -160,10 +160,13 @@
     "sideTitle": "Beyond Code",
     "sideDesc": "I don't just write code; I design solutions. My approach combines solid engineering with refined aesthetic sensibility.",
     "list": [
-      { "title": "Frontend", "desc": "React, TypeScript, Next.js, Tailwind, Astro" },
+      {
+        "title": "Frontend",
+        "desc": "React, TypeScript, Next.js, Tailwind, Astro"
+      },
       { "title": "Backend", "desc": "Node.js, Express, Python, PostgreSQL" },
       { "title": "Tools", "desc": "Git, Docker, Vite" },
-      { "title": "Soft Skills", "desc": "Leadership, Communication, Agile" }
+      { "title": "Soft Skills", "desc": "Leadership, Communication" }
     ]
   },
   "aiChat": {
@@ -189,7 +192,6 @@
         "timeData": "2026 - Present",
         "latest": true
       }
-
     ]
   },
   "contact": {

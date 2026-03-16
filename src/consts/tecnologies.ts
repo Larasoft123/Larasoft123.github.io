@@ -1,6 +1,3 @@
-
-
-
 export const tecnologies = [
   {
     name: "Angular",
@@ -61,13 +58,8 @@ export const tecnologies = [
 
   },
 
-
-  {
-    name: "Midudev",
-
-  },
   {
     name: "Vitejs",
 
   }
-];
+] as const

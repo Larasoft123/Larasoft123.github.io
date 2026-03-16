@@ -18,9 +18,9 @@ export const showDefaultLang = false;
 
 export const routes = {
     es: {
-        'services': 'leistungen',
+        'services': 'servicios',
     },
     en: {
-        'services': 'prestations-de-service',
+        'services': 'services',
     },
-}
+} as const;

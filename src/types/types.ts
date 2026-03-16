@@ -24,17 +24,7 @@ export interface Tag {
     name: string
 }
 
-export interface SkillData {
-    subject: string;
-    A: number;
-    fullMark: number;
-}
 
-export interface ChatMessage {
-    role: 'user' | 'model';
-    text: string;
-    isError?: boolean;
-}
 
 export interface Certification {
     id: number;
