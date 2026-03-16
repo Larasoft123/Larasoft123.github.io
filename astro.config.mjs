@@ -1,8 +1,9 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
+import vercelAdapter from "@astrojs/vercel";
 
-import sitemap from "@astrojs/sitemap";
+// import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://larasoft123.github.io",
@@ -12,8 +13,8 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false
     }
-
   },
+  adapter: vercelAdapter(),
   vite: {
     plugins: [tailwindcss()],
     server: {
@@ -23,5 +24,6 @@ export default defineConfig({
     }
   },
 
-  integrations: [sitemap()],
+
+  // integrations: [sitemap()],
 });
